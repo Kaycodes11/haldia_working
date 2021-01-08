@@ -1,0 +1,784 @@
+<div class="pcoded-content dimmed-bg pb-30px">
+  <div class="row">
+    <div
+      *ngIf="formdataByFormNo.length > 0"
+      class="col-10"
+      style="font-weight: bold; font-size: 1rem"
+    >
+      <span>Form No: {{ formdataByFormNo[0]["Form_No"] }}</span>
+      <span class="ml-2" style="color: #795548"
+        >Org: {{ formdataByFormNo[0]["Name_Org"] }}</span
+      >
+    </div>
+    <div class="col justify-content-end">
+      <button class="btn btn-primary btn-sm ml-5" (click)="goBackButton()">
+        Go Back
+      </button>
+    </div>
+  </div>
+  <!-- Row 1 /start -->
+  <div class="row my-3">
+    <h5 class="section-title w-100 p-2">Property Owner Details</h5>
+    <!-- Left Side /start -->
+    <div class="col-6">
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Assessee / Holding No</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Assessee_Holding_No"]
+        }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Owner Name</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Property_Owner_Name"]
+        }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Street</span>
+        <span class="w-100 light-bg">{{ formdataByFormNo[0]["Street"] }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Locality Name</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Locality_Name"]
+        }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Ward No.</span>
+        <span class="w-100 light-bg">{{ formdataByFormNo[0]["Ward"] }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Type of Tax</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Tax_Paid_Type"]
+        }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Property Tax</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Tax_Paid_Amount"]
+        }}</span>
+      </div>
+    </div>
+    <!-- Left Side /end -->
+    <!-- Right Side /start -->
+    <!-- Right Side /start -->
+    <!-- Right Side /end -->
+    <div class="col-6">
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Status</span>
+        <span class="w-100 light-bg">{{ formdataByFormNo[0]["Status"] }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Type of Land</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Land_Nature"]
+        }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Issue Date</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Applied_On"]
+        }}</span>
+      </div>
+      <!-- <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Expiration Date</span>
+        <span class="w-100 light-bg">Test</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Valuation</span>
+        <span class="w-100 light-bg">Test</span>
+      </div> -->
+      <!-- <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Form Number</span>
+        <span class="w-100 light-bg">{{ formdataByFormNo[0]["Form_No"] }}</span>
+      </div> -->
+    </div>
+    <!-- Right Side /end -->
+    <!-- Left Side /start -->
+    <!-- Left Side /end -->
+    <!-- Right Side /start -->
+    <!-- Right Side /end -->
+  </div>
+  <!-- Row 1 /end -->
+
+  <!-- Row 2 /end -->
+  <!-- Row 3 /start -->
+  <div class="row my-3">
+    <h5 class="section-title w-100 p-2">Trade Details</h5>
+    <!-- Left Side /start -->
+    <div class="col-6">
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Type of Business</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Trade_Nature"]
+        }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">For the Year</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Fin_Year_Sht_Name"]
+        }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Name of the company</span>
+        <span class="w-100 light-bg">Test</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Applied Date</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Applied_On"]
+        }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Investment of capital</span>
+        <span class="w-100 light-bg">{{ formdataByFormNo[0]["Capital"] }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">GST</span>
+        <span class="w-100 light-bg">{{ formdataByFormNo[0]["GST_IN"] }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">PAN</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Company_PAN"]
+        }}</span>
+      </div>
+    </div>
+    <!-- Left Side /end -->
+    <!-- Right Side /start -->
+    <div class="col-6">
+      <!-- <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">GST</span>
+        <span class="w-100 light-bg">{{ formdataByFormNo[0]["GST_IN"] }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">PAN</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Company_PAN"]
+        }}</span>
+      </div> -->
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Contact</span>
+        <span class="w-100 light-bg">{{ formdataByFormNo[0]["Con_No"] }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Contact address</span>
+        <span class="w-100 light-bg">{{ formdataByFormNo[0]["Con_add"] }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Workshop</span>
+        <span class="w-100 light-bg">{{
+          formdataByFormNo[0]["Workshop"]
+        }}</span>
+      </div>
+      <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Godown</span>
+        <span class="w-100 light-bg">{{ formdataByFormNo[0]["Godown"] }}</span>
+      </div>
+      <!-- <div class="d-flex justify-content-between dark-border">
+        <span class="pl-2 w-100 h-100">Form Number</span>
+        <span class="w-100 light-bg">{{ formdataByFormNo[0]["Form_No"] }}</span>
+      </div> -->
+    </div>
+    <!-- Right Side /end -->
+  </div>
+  <!-- Row 3 /start -->
+  <div class="row my-3">
+    <div class="section-title w-100 p-2">
+      <h5 class="section-title w-100 p-2">Trade Types</h5>
+    </div>
+    <!-- <ng-container *ngIf="formTradeTypeValues.length > 0">
+      <div class="col-12">
+        <div class="row my-3">
+          <div class="col-6">
+            <span class="font-weight-bold">Trade Size</span>
+          </div>
+          <div>
+            <span class="font-weight-bold">{{
+              formTradeTypeValues[0]["Trade_size"]
+            }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row my-3">
+          <div class="col-6">
+            <span class="font-weight-bold">Trade Type</span>
+          </div>
+          <div>
+            <span class="font-weight-bold">{{
+              formTradeTypeValues[0]["Trade_Type"]
+            }}</span>
+          </div>
+        </div>
+      </div>
+    </ng-container> -->
+    <!-- <div class="table-responsive">
+      <table class="table mt-2">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Trade Size</th>
+            <th scope="col">Trade Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let type of formTradeTypeValues; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ formTradeTypeValues[0]["Trade_size"] }}</td>
+            <td>{{ formTradeTypeValues[0]["Trade_Type"] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div> -->
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Row</th>
+            <th scope="col">Trade Type Name</th>
+            <th scope="col">Trade Size</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let type of formTradeTypeValues; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ formTradeTypeValues[0]["Trade_size"] }}</td>
+            <td>{{ formTradeTypeValues[0]["Trade_Type"] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Row 4 /end -->
+  <!-- Row 5 /start -->
+  <div class="row my-3">
+    <div class="section-title w-100 p-2">
+      <h5 class="section-title w-100 p-2">File Manager</h5>
+    </div>
+    <!-- <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col" *ngFor="let file of fileManager">
+                {{ file["Document_name"] }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td *ngFor="let save of savedfileMangerImages; index as i">
+
+                <button
+                  *ngIf="save.file_Url && save.columnIndex == i"
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  class="btn btn-primary btn-sm"
+                  (click)="onShowImageModal(save)"
+                >
+                  SHOW
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div> -->
+    <div class="col-12">
+      <div
+        class="row my-3"
+        *ngFor="let save of savedfileMangerImages; index as i"
+      >
+        <div class="col-6">
+          <span class="font-weight-bold">{{ save["Document_Name"] }}</span>
+        </div>
+        <div class="col-6">
+          <!-- <button
+            *ngIf="save.file_Url && save.columnIndex == i"
+            type="button"
+            data-toggle="modal"
+            data-target="#exampleModal"
+            class="btn btn-primary btn-sm"
+            (click)="onShowImageModal(save)"
+          >
+            SHOW
+          </button> -->
+          <button
+            *ngIf="save.file_Url.length > 0 && save.columnIndex == i"
+            type="button"
+            class="btn btn-primary btn-sm"
+            (click)="onShowImageModal(save)"
+          >
+            SHOW
+          </button>
+          <ng-container *ngIf="!save.file_Url || save.columnIndex !== i">
+            <span style="font-weight: bold">Not available</span>
+          </ng-container>
+        </div>
+        <!-- {{ save.file_Url | json }} -->
+      </div>
+    </div>
+  </div>
+  <!-- Row 5 /end -->
+  <!-- Row 6 /start -->
+  <div class="row my-3">
+    <div class="section-title w-100 p-2 mb-3">
+      <h5 class="section-title w-100 p-2">Finance Manager</h5>
+    </div>
+    <div class="col-6 dark-border">Fees</div>
+    <!-- <div class="col-6 dark-border">
+          <span class= w-100 d-inline-block h-100"
+            ><i class="fas fa-rupee-sign"></i><span class="ml-2">50.00</span></i></span
+          >
+        </div> -->
+
+    <div class="col-6 dark-border">Payment</div>
+    <!-- <div class="col-6 dark-border">
+          <span class= w-100 d-inline-block h-100"
+            ><i class="fas fa-rupee-sign"></i><span class="ml-2">50.00</span></i></span
+          >
+        </div> -->
+
+    <div class="col-6 dark-border">Waver amount</div>
+    <!-- <div class="col-6 dark-border">
+          <span class= w-100 d-inline-block h-100"
+            ><i class="fas fa-rupee-sign"></i><span class="ml-2">50.00</span></i></span
+          >
+        </div> -->
+
+    <div class="col-6 dark-border">Balance Due</div>
+    <!-- <div class="col-6 dark-border">
+          <span class= w-100 d-inline-block h-100">
+            <i class="fas fa-rupee-sign"></i>
+            <span class="ml-2">50.00</span></span>
+        </div> -->
+  </div>
+  <!-- Row 6 /end -->
+  <div class="row justify-content-between my-3">
+    <div class="section-title w-100 p-2 mb-3">
+      <div class="d-flex justify-content-between">
+        <h5 class="section-title w-100 p-2">Followup Manager</h5>
+        <button
+          [hidden]="shouldHideForwardButton"
+          class="btn btn-primary btn-sm"
+          data-toggle="modal"
+          data-target="#theFollowUp"
+          (click)="onForwardClick()"
+        >
+          Forward
+        </button>
+      </div>
+    </div>
+    <!-- <div class="col-12">
+      <div class="row my-3">
+        <div class="col-6">
+          <span class="font-weight-bold">Followup Date</span>
+        </div>
+        <div>
+          <span class="font-weight-bold">{{
+            formTradeFollowUpValues[0]["Followup_Date"]
+          }}</span>
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-6">
+          <span class="font-weight-bold">Followup By Citizen</span>
+        </div>
+        <div>
+          <span class="font-weight-bold">{{
+            formTradeFollowUpValues[0]["Followup_by_e_cityzen_name"]
+          }}</span>
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-6">
+          <span class="font-weight-bold">Followup By User</span>
+        </div>
+        <div>
+          <span class="font-weight-bold">{{
+            formTradeFollowUpValues[0]["Followup_by_user_name"]
+          }}</span>
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-6">
+          <span class="font-weight-bold">Form Status</span>
+        </div>
+        <div>
+          <span class="font-weight-bold">{{
+            formTradeFollowUpValues[0]["Form_Status"]
+          }}</span>
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-6">
+          <span class="font-weight-bold">Next Followup By Citizen</span>
+        </div>
+        <div>
+          <span class="font-weight-bold">{{
+            formTradeFollowUpValues[0]["Next_Followup_by_e_cityzen_name"]
+          }}</span>
+        </div>
+      </div>
+
+      <div
+        class="row my-3"
+        *ngIf="formTradeFollowUpValues[0].Next_Followup_by_user_name.length > 0"
+      >
+        <div class="col-6">
+          <span class="font-weight-bold">Next Followup User</span>
+        </div>
+        <div>
+          <span class="font-weight-bold">{{
+            formTradeFollowUpValues[0]["Next_Followup_by_user_name"]
+          }}</span>
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-6">
+          <span class="font-weight-bold">Remarks</span>
+        </div>
+        <div>
+          <span class="font-weight-bold">{{
+            formTradeFollowUpValues[0]["Remarks"]
+          }}</span>
+        </div>
+      </div>
+
+      <div class="row my-3">
+        <div class="col-6">
+          <span class="font-weight-bold">Next Followup Completed</span>
+        </div>
+        <div>
+          <span class="font-weight-bold">{{
+            formTradeFollowUpValues[0]["Sent_To_Date"]
+          }}</span>
+        </div>
+      </div>
+    </div> -->
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>Date</th>
+            <th>Followup By eCtizen</th>
+            <th>Followup By User</th>
+            <th>Form Status</th>
+            <th>Next Followup By Citizen</th>
+            <th>Next Followup By User</th>
+            <th>Remarks</th>
+            <th>Next Followup Completed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let follow of formTradeFollowUpValues">
+            <td>{{ follow["Followup_Date"] }}</td>
+            <td>{{ follow["Followup_by_e_cityzen_name"] }}</td>
+            <td>{{ follow["Followup_by_user_name"] }}</td>
+            <td>{{ follow["Form_Status"] }}</td>
+            <td>{{ follow["Next_Followup_by_e_cityzen_name"] }}</td>
+            <td>{{ follow["Next_Followup_by_user_name"] }}</td>
+            <td>{{ follow["Remarks"] }}</td>
+            <td>{{ follow["Sent_To_Date"] }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- <div class="d-flex justify-content-center">
+    <button
+      class="btn btn-sm"
+      style="background-color: #14274e; color: white; width: 200px"
+      data-toggle="modal"
+      data-target="#theFollowUp"
+    >
+      Forward/Followup
+    </button>
+  </div> -->
+</div>
+
+<!-- write the file modal here   -->
+<!-- <div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ modalTitle }}</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img
+          src="{{ modalImage }}"
+          alt="{{ modalTitle }}"
+          width="400px"
+          height="200px"
+        />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- write the followup modal here which will open onclick on forward/followup button; Folloup table -->
+<div
+  class="modal fade"
+  id="theFollowUp"
+  data-backdrop="static"
+  data-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5
+          *ngIf="formTradeFollowUpValues.length > 0"
+          class="modal-title"
+          id="staticBackdropLabel"
+        >
+          Followup details
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true" (click)="onModalHide()">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="formTradeFollowUpValues.length > 0">
+        <!-- <div class="row">
+          <div class="section-title p-2 mb-3">
+            <h5 class="section-title w-100 p-2">
+              {{ formTradeFollowUpValues[0].Followup_Date }}
+            </h5>
+          </div>
+
+          <div class="col-12" *ngIf="formTradeFollowUpValues.length > 0">
+            <div class="row justify-content-between my-3">
+              <div class="col-4">
+                <span
+                  >Followup user:
+                  {{ formTradeFollowUpValues[0].Followup_by_user_name }}
+                </span>
+              </div>
+            </div>
+
+            <div class="row justify-content-between my-3">
+              <div class="col-4">
+                <span
+                  >Next action:
+                  {{ formTradeFollowUpValues[0].Next_Followup_by_user_name }}
+                </span>
+              </div>
+            </div>
+
+            <hr />
+            <div
+              class="row justify-content-between my-3"
+              *ngIf="formTradeFollowUpValues[0].Remarks.length > 0"
+            >
+              <div class="col-4">
+                <span
+                  >Remarks:
+                  {{ formTradeFollowUpValues[0].Remarks }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="row">
+          <div class="col-6">
+            <!-- <div class="timeline">
+              <div class="timeline-body">
+                <div class="timeline-item">
+                  <p class="time">
+                    {{ formTradeFollowUpValues[0].Followup_Date }}
+                  </p>
+                  <div class="content">
+                    <h2
+                      class="title"
+                      style="font-size: 1.25rem; font-weight: 500"
+                    >
+                      {{ formTradeFollowUpValues[0].Followup_by_user_name }}
+                      <span style="font-size: 1rem"
+                        >{{ formTradeFollowUpValues[0].Form_Status }}
+                      </span>
+                    </h2>
+                    <p>{{ formTradeFollowUpValues[0].Remarks }}</p>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Date</th>
+                    <th
+                      *ngIf="
+                        formTradeFollowUpValues[0]['Followup_by_e_cityzen_name']
+                          .length > 0
+                      "
+                    >
+                      Followup By eCtizen
+                    </th>
+                    <th>Followup By User</th>
+                    <th>Form Status</th>
+                    <th
+                      *ngIf="
+                        formTradeFollowUpValues[0][
+                          'Next_Followup_by_e_cityzen_name'
+                        ].length > 0
+                      "
+                    >
+                      Next Followup By Citizen
+                    </th>
+                    <th>Next Followup By User</th>
+                    <th>Remarks</th>
+                    <th>Next Followup Completed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let follow of formTradeFollowUpValues">
+                    <td>{{ follow["Followup_Date"] }}</td>
+                    <td *ngIf="follow['Followup_by_e_cityzen_name'].length > 0">
+                      {{ follow["Followup_by_e_cityzen_name"] }}
+                    </td>
+                    <td>{{ follow["Followup_by_user_name"] }}</td>
+                    <td>{{ follow["Form_Status"] }}</td>
+                    <td
+                      *ngIf="
+                        follow['Next_Followup_by_e_cityzen_name'].length > 0
+                      "
+                    >
+                      {{ follow["Next_Followup_by_e_cityzen_name"] }}
+                    </td>
+                    <td>{{ follow["Next_Followup_by_user_name"] }}</td>
+                    <td>{{ follow["Remarks"] }}</td>
+                    <td>{{ follow["Sent_To_Date"] }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-6">
+            <!-- show the reactive formgroup here -->
+            <form [formGroup]="followUpForm" (ngSubmit)="onFollupSubmit()">
+              <!-- <div class="form-group">
+                <label for="selectForwardorHold">Select Date:</label>
+                <input type="date" formControlName="selectDate" />
+              </div> -->
+              <div class="form-group">
+                <label for="selectForwardorHold">Forward To:</label>
+                <select
+                  class="form-control"
+                  id="selectForward"
+                  formControlName="nextFollowUp"
+                >
+                  <!-- <option value="default" selected>
+                    Select an option here
+                  </option> -->
+
+                  <option value="Hold" [hidden]="hideHold">Hold</option>
+                  <option value="Forward">Forward</option>
+                </select>
+                <!-- <div *ngIf=""></div> -->
+              </div>
+              <div class="form-group" *ngIf="shouldShowForwardTo">
+                <label for="selectForwardorHold">User Type:</label>
+                <select
+                  class="form-control"
+                  id="selectForward"
+                  formControlName="forwardTo"
+                >
+                  <option value="Cityzen">Citizen</option>
+                  <!-- <option value="User">User</option> -->
+                </select>
+              </div>
+              <div
+                class="form-group"
+                *ngIf="shouldShowForwardTo || shouldShowUserList"
+              >
+                <label for="selectForwardorHold">User List: </label>
+                <!-- whatever option user selects/types would be retrievable from this formcontrolname -->
+                <select
+                  class="form-control"
+                  id="selectForward"
+                  formControlName="showUserType"
+                >
+                  <!-- option value and content would be from api -->
+                  <option
+                    *ngFor="let user of showThisUserNameByFormNo"
+                    [value]="user.NextFollowUID"
+                  >
+                    {{ user.Followup_by_e_cityzen_name || user.Name }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Remarks</label>
+                <textarea
+                  formControlName="remarks"
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                ></textarea>
+              </div>
+              <!-- <button type="submit" class="btn btn-primary btn-sm">
+                Submit
+              </button> -->
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="onModalHide()"
+        >
+          Close
+        </button>
+        <button
+          [disabled]="!this.followUpForm.controls.nextFollowUp.value"
+          type="button"
+          class="btn btn-primary"
+          (click)="onFollowp()"
+        >
+          Followup
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

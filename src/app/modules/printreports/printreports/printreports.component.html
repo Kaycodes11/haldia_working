@@ -1,0 +1,109 @@
+<div class="container">
+  <ng-container *ngIf="paymentdateWithSplit">
+    <div class="row">
+      <div class="col-1">
+        <div
+          class="logo d-flex h-100 justify-content-center align-items-center"
+        >
+          <img
+            src="{{ recievefromServiceApi[0].Comp_Logo }}"
+            alt="HALDIA_MUNICIPLAITY"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+      <div class="col">
+        <div class="text-center">
+          <span class="d-block">Office Copy</span>
+          <h1 class="mb-0">FORM-39</h1>
+          <span class="d-block">[ Vide Rule 105, 121 & 122 ]</span>
+          <span class="d-block font-weight-bold">MISCELLANEOUS RECEIPT</span>
+          <h3>HALDIA MUNICIPALITY</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-between mt-2">
+      <div class="col">
+        RECEIPT NO: {{ recievefromServiceApi[0].ReceiptNo }}
+      </div>
+      <div class="col text-right">Payment Date: {{ paymentdateWithSplit }}</div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <!-- new table -->
+        <div class="row">
+          <div class="col-2">Received From</div>
+          <div class="col-10">
+            :&nbsp;&nbsp;{{ recievefromServiceApi[0].ReceivedFrom }}
+          </div>
+
+          <div class="col-2">The Sum of Rs</div>
+          <div class="col-10">:&nbsp;&nbsp;Fifty Rupees</div>
+
+          <div class="col-2">On Account Of</div>
+          <div class="col-10">
+            :&nbsp;&nbsp;1401004 - REGISTRATION OF PREOFESSIONAL/ENLISTMENT FEES
+          </div>
+
+          <div class="col-2">Rs</div>
+          <div class="col-10">
+            :&nbsp;&nbsp;{{ recievefromServiceApi[0].Amount }}
+          </div>
+
+          <div class="col-2">Remarks</div>
+          <div class="col-10">:&nbsp;&nbsp;Registration No. u/s 118 1257</div>
+
+          <div class="col-2">Entered By</div>
+          <div class="col-10">
+            :&nbsp;&nbsp;{{ recievefromServiceApi[0].ReceivedFrom }}
+          </div>
+
+          <div class="col-2">Application Number</div>
+          <div class="col-10">
+            :&nbsp;&nbsp;{{ recievefromServiceApi[0].ReceiptNo }}
+          </div>
+
+          <!-- <div class="col-6 text-right">Received From</div>
+        <div class="col-6">MANJARI SARASWATI</div>
+        <div class="col-6 text-right">The Sum of Rs</div>
+        <div class="col-6">One Thousand Four Hundred Rupees</div>
+        <div class="col-6 text-right">On Account Of</div>
+        <div class="col-6">
+          1401004 - REGISTRATION OF PREOFESSIONAL/ENLISTMENT FEES
+        </div>
+        <div class="col-6 text-right">Rs</div>
+        <div class="col-6">1400.00</div>
+        <div class="col-6 text-right">Remarks</div>
+        <div class="col-6">Registration No. u/s 118 1257</div>
+        <div class="col-6 text-right">Entered By</div>
+        <div class="col-6">Gurupada Dikshit</div>
+        <div class="col-6 text-right">Application Number</div>
+        <div class="col-6">LTLR2043845</div> -->
+        </div>
+      </div>
+      <div class="col-12 d-flex justify-content-between mt-3">
+        <img
+          src="http://pngimg.com/uploads/qr_code/qr_code_PNG38.png"
+          alt=""
+          class="img-fluid img-responsive"
+          style="height: 100px"
+        />
+
+        <div class="signature mt-1" style="text-align: center">
+          <img
+            style="
+              overflow: hidden;
+              width: 75px;
+              height: 75px;
+              mix-blend-mode: multiply;
+            "
+            src="{{ recievefromServiceApi[0].TL_form_receipt_sig }}"
+            alt="signature"
+            class="img-fluid img-responsive"
+          />
+          <p>Executive Officer/Authorized Officer</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

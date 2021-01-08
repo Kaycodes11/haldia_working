@@ -1,0 +1,1766 @@
+<div class="pcoded-content">
+  <!-- [ breadcrumb ] start -->
+  <div class="page-header">
+    <div class="page-block">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="page-header-title">
+            <h5 class="m-b-10">Trade Enlishment</h5>
+          </div>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="members/dash">Home</a></li>
+            <li class="breadcrumb-item">Trade Enlishment</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5>Trade Registration</h5>
+        </div>
+        <div class="card-body">
+          <ng-wizard [config]="config" (stepChanged)="stepChanged($event)">
+            <ng-wizard-step
+              [title]="'Step 1'"
+              [description]="'Property Owner Detail'"
+              [canExit]="isValidFunctionPropertyDetail.bind(this)"
+              [canEnter]="isValidTypeBoolean"
+            >
+              <form [formGroup]="PropertyOwnerDetail">
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="Assessee_HoldingNo"
+                      >Assessee / Holding No.
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Assessee_Holding_No"
+                      id="Assessee_Holding_No"
+                      [ngClass]="{
+                        'is-invalid':
+                          Assessee_Holding_No.touched &&
+                          Assessee_Holding_No.invalid,
+                        'is-valid': !Assessee_Holding_No.invalid
+                      }"
+                      placeholder="Assessee / Holding No."
+                    />
+                    <div
+                      *ngIf="
+                        Assessee_Holding_No.touched &&
+                        Assessee_Holding_No.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Assessee_Holding_No.errors.required">
+                        Assessee / Holding Number required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8 mb-3">
+                    <label for="OwnerName">Owner Name </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Owner_Name"
+                      id="Owner_Name"
+                      [ngClass]="{
+                        'is-invalid': Owner_Name.touched && Owner_Name.invalid,
+                        'is-valid': !Owner_Name.invalid
+                      }"
+                      placeholder="Owner Name"
+                    />
+                    <div
+                      *ngIf="Owner_Name.touched && Owner_Name.invalid"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Owner_Name.errors.required">
+                        Owner Name required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-12 mb-3">
+                    <label for="Street_Road">Street/Road Name/Address </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Street_Road_Name"
+                      id="Street_Road_Name"
+                      [ngClass]="{
+                        'is-invalid':
+                          Street_Road_Name.touched && Street_Road_Name.invalid,
+                        'is-valid': !Street_Road_Name.invalid
+                      }"
+                      placeholder="Street/Road Name/Address"
+                    />
+                    <div
+                      *ngIf="
+                        Street_Road_Name.touched && Street_Road_Name.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Street_Road_Name.errors.required">
+                        Street/Road Name/Address required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8 mb-3">
+                    <label for="LocalityName"
+                      >Locality Name(Google Incorporate)
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Locality_Name"
+                      id="Locality_Name"
+                      [ngClass]="{
+                        'is-invalid':
+                          Locality_Name.touched && Locality_Name.invalid,
+                        'is-valid': !Locality_Name.invalid
+                      }"
+                      placeholder="Locality Name"
+                    />
+                    <div
+                      *ngIf="Locality_Name.touched && Locality_Name.invalid"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Locality_Name.errors.required">
+                        Locality Name required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="WardNo_Councilor">Ward Number </label>
+
+                    <select
+                      [ngClass]="{
+                        'is-invalid':
+                          WardNo_CouncilorName.touched &&
+                          WardNo_CouncilorName.invalid,
+                        'is-valid': !WardNo_CouncilorName.invalid
+                      }"
+                      formControlName="WardNo_CouncilorName"
+                      id="WardNo_CouncilorName"
+                      class="form-control"
+                    >
+                      <option
+                        *ngFor="let type of WardNoCouncilorName"
+                        [value]="type.Ward_ID"
+                      >
+                        {{ type.Ward_No }}: {{ type.Ward_Councillor }}
+                      </option>
+                    </select>
+
+                    <div
+                      *ngIf="
+                        WardNo_CouncilorName.touched &&
+                        WardNo_CouncilorName.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="WardNo_CouncilorName.errors.required">
+                        Ward Number / Councilor Name required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                      <label class="d-block">Type of tax</label>
+                      <label *ngFor="let tax of tlTaxes" class="radio-inline">
+                        <!-- <input formControlName="Type_Of_Tax" type="radio" name="Type_Of_Tax"
+                                                    [value]="tax.id" />
+                                                {{tax.name}} -->
+
+                        <div class="form-check form-check-inline">
+                          <input
+                            type="radio"
+                            formControlName="Type_Of_Tax"
+                            name="Type_Of_Tax"
+                            [value]="tax.id"
+                            class="form-check-input"
+                            id="chkProperty"
+                          />
+                          <label class="form-check-label" for="chkProperty">{{
+                            tax.name
+                          }}</label>
+                        </div>
+                      </label>
+                      <!-- <div class="invalid-feedback" *ngIf="submitted && Type_Of_Tax.errors">
+                                                Select One
+
+                                            </div> -->
+                      <!-- <div class="form-check form-check-inline">
+                                                <input type="radio" name="radio2" class="form-check-input"
+                                                    id="chkProperty">
+                                                <label class="form-check-label" for="chkProperty">Property Tax</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input type="radio" name="radio2" class="form-check-input"
+                                                    id="chkOccupied">
+                                                <label class="form-check-label" for="chkOccupied">Occupier Tax</label>
+                                            </div> -->
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="AmountPaidPropertyTax"
+                      >Amount Paid For Property Tax(Rs.)
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="AmountPaid_PropertyTax"
+                      id="AmountPaid_PropertyTax"
+                      [ngClass]="{
+                        'is-invalid':
+                          AmountPaid_PropertyTax.touched &&
+                          AmountPaid_PropertyTax.invalid,
+                        'is-valid': !AmountPaid_PropertyTax.invalid
+                      }"
+                      placeholder="Amount Paid For Property Tax(Rs.)"
+                    />
+                    <div
+                      *ngIf="
+                        AmountPaid_PropertyTax.touched &&
+                        AmountPaid_PropertyTax.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="
+                          AmountPaid_PropertyTax.errors.required ||
+                          (AmountPaid_PropertyTax.errors.required &&
+                            AmountPaid_PropertyTax.errors.cannotContainSpace)
+                        "
+                      >
+                        Amount Paid For Property Tax(Rs.) required
+                      </div>
+
+                      <div
+                        *ngIf="
+                          AmountPaid_PropertyTax.dirty &&
+                          AmountPaid_PropertyTax.errors.notNumeric
+                        "
+                      >
+                        amount should just be number
+                      </div>
+                      <div
+                        *ngIf="
+                          AmountPaid_PropertyTax.dirty &&
+                          AmountPaid_PropertyTax.errors.cannotContainSpace
+                        "
+                      >
+                        The value here should've no space
+                      </div>
+                      <!-- <div *ngIf="AmountPaid_PropertyTax.errors.justNumber">
+                        enter a valid amount (exclude +, /, *, -, .)
+                      </div> -->
+                    </div>
+                    <!-- {{ AmountPaid_PropertyTax.errors | json }} -->
+                  </div>
+                  <!-- Bind with Land Nature -->
+                  <div class="col-md-4 mb-3">
+                    <label for="TypeOfRelationWithLand"
+                      >Type of relation with land
+                    </label>
+                    <select
+                      [ngClass]="{
+                        'is-invalid':
+                          TypeOf_Relation_With_Land.touched &&
+                          TypeOf_Relation_With_Land.invalid,
+                        'is-valid': !TypeOf_Relation_With_Land.invalid
+                      }"
+                      formControlName="TypeOf_Relation_With_Land"
+                      id="TypeOf_Relation_With_Land"
+                      class="form-control"
+                    >
+                      <option
+                        *ngFor="let type of TypeRelationWithLand"
+                        [value]="type.Land_Nature_Id"
+                      >
+                        {{ type.Land_Nature }}
+                      </option>
+                    </select>
+
+                    <div
+                      *ngIf="
+                        TypeOf_Relation_With_Land.touched &&
+                        TypeOf_Relation_With_Land.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="TypeOf_Relation_With_Land.errors.required">
+                        Type of relation with land
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </ng-wizard-step>
+
+            <ng-wizard-step
+              [title]="'Step 2'"
+              [description]="'Trade Details'"
+              [canExit]="isValidFunctionTradeDetails.bind(this)"
+              [state]="stepStates.normal"
+            >
+              <form [formGroup]="Trade_Details1">
+                <div class="form-row">
+                  <div class="col-md-3 mb-3">
+                    <label for="Type_Business_Structure"
+                      >Type of Business
+                    </label>
+
+                    <select
+                      (change)="changeBusinessStructureType()"
+                      [ngClass]="{
+                        'is-invalid':
+                          Type_Of_Business_Structure.touched &&
+                          Type_Of_Business_Structure.invalid,
+                        'is-valid': !Type_Of_Business_Structure.invalid
+                      }"
+                      formControlName="Type_Of_Business_Structure"
+                      id="Type_Of_Business_Structure"
+                      class="form-control"
+                    >
+                      <option
+                        *ngFor="let type of tradeNatureList"
+                        [value]="type.Trade_Nature_Id"
+                      >
+                        {{ type.Trade_Nature }}
+                      </option>
+                    </select>
+                    <div
+                      *ngIf="
+                        Type_Of_Business_Structure.touched &&
+                        Type_Of_Business_Structure.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Type_Of_Business_Structure.errors.required">
+                        Type of Business Structure required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="For_the_year">For the year </label>
+                    <select
+                      [ngClass]="{
+                        'is-invalid':
+                          For_the_Finalcial_year.touched &&
+                          For_the_Finalcial_year.invalid,
+                        'is-valid': !For_the_Finalcial_year.invalid
+                      }"
+                      formControlName="For_the_Finalcial_year"
+                      id="For_the_Finalcial_year"
+                      class="form-control"
+                    >
+                      <option
+                        *ngFor="let type of For_Finalcial_year"
+                        [value]="type.Fin_Year_ID"
+                      >
+                        {{ type.Fin_Year_Name }}
+                      </option>
+                    </select>
+
+                    <div
+                      *ngIf="
+                        For_the_Finalcial_year.touched &&
+                        For_the_Finalcial_year.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="For_the_Finalcial_year.errors.required">
+                        For the year required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="Name_Firm_Company"
+                      >Name of the Firm/Company
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Name_Firm_Company"
+                      id="Name_Firm_Company"
+                      [ngClass]="{
+                        'is-invalid':
+                          Name_Firm_Company.touched &&
+                          Name_Firm_Company.invalid,
+                        'is-valid': !Name_Firm_Company.invalid
+                      }"
+                      placeholder="Name Of the Firm Company"
+                    />
+                    <div
+                      *ngIf="
+                        Name_Firm_Company.touched && Name_Firm_Company.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Name_Firm_Company.errors.required">
+                        Name of the Firm/Company required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-3 mb-3">
+                    <label for="Date_ofCommenencement"
+                      >Date of Commenencement
+                    </label>
+                    <input
+                      type="text"
+                      formControlName="Date_of_Commenencement"
+                      [ngClass]="{
+                        'is-invalid':
+                          Date_of_Commenencement.touched &&
+                          Date_of_Commenencement.invalid,
+                        'is-valid': !Date_of_Commenencement.invalid
+                      }"
+                      [minDate]="min"
+                      autocomplete="off"
+                      height="43"
+                      width="100%"
+                      dateFormat="dd-MM-yyyy"
+                      name="Date_of_Commenencement"
+                      ej-datepicker
+                      id="Date_of_Commenencement"
+                      class="form-control"
+                      placeholder="dd-mm-yyyy"
+                    />
+                    <!-- <input
+                      type="date"
+                      class="form-control"
+                      formControlName="Date_of_Commenencement"
+                      id="Date_of_Commenencement"
+                      [ngClass]="{
+                        'is-invalid':
+                          Date_of_Commenencement.touched &&
+                          Date_of_Commenencement.invalid,
+                        'is-valid': !Date_of_Commenencement.invalid
+                      }"
+                    /> -->
+                    <div
+                      *ngIf="
+                        Date_of_Commenencement.touched &&
+                        Date_of_Commenencement.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <!-- <div *ngIf="Date_of_Commenencement.errors.required">
+                        Date of Commenencement
+                      </div> -->
+                      <div *ngIf="Date_of_Commenencement.errors.badDate">
+                        Date of Commenencement is invalid
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-9 mb-3">
+                    <label for="Investment_Capital"
+                      >Investment of Capital(Rs)
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Investment_Of_Capital"
+                      id="Investment_Of_Capital"
+                      [ngClass]="{
+                        'is-invalid':
+                          Investment_Of_Capital.touched &&
+                          Investment_Of_Capital.invalid,
+                        'is-valid': !Investment_Of_Capital.invalid
+                      }"
+                      placeholder="Investment Of Capital"
+                    />
+                    <div
+                      *ngIf="
+                        Investment_Of_Capital.touched &&
+                        Investment_Of_Capital.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Investment_Of_Capital.errors.required">
+                        Investment Of Capital required
+                      </div>
+
+                      <!-- <div
+                        *ngIf="
+                          Investment_Of_Capital.errors &&
+                          Investment_Of_Capital.errors.notNumeric
+                        "
+                      >
+                        Enter number
+                      </div> -->
+
+                      <!-- {{ Investment_Of_Capital.errors | json }} -->
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="TradeType">Trade Type </label>
+                    <select
+                      formControlName="TradeType"
+                      id="TradeType"
+                      class="form-control"
+                    >
+                      <option value="0">SMALL</option>
+                      <option value="1">MEDIUM</option>
+                      <option value="2">LARGE</option>
+                    </select>
+
+                    <div
+                      *ngIf="TradeType.touched && TradeType.invalid"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="TradeType.errors.required">
+                        Trade Type Required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <label for="Nature_Trade">Nature of Trade </label>
+                      <input
+                        type="text"
+                        id="Nature_of_Trade"
+                        ej-autocomplete
+                        class="form-control"
+                        [dataSource]="tradeTypeList"
+                        [fields]="nameField"
+                        formControlName="Nature_of_Trade"
+                        height="43"
+                        width="100%"
+                      />
+                      <div
+                        *ngIf="
+                          Nature_of_Trade.touched && Nature_of_Trade.invalid
+                        "
+                        class="invalid-feedback"
+                      >
+                        <div *ngIf="Nature_of_Trade.errors.required">
+                          Nature Of Trade required
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-2 mb-3">
+                    <label style="visibility: hidden"> GSTINdfdfdsfs </label>
+                    <button
+                      type="button"
+                      (click)="addToCart()"
+                      class="btn btn-success"
+                    >
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+
+                  <div class="col-md-12 mb-3">
+                    <app-del-confirm-modal
+                      (delFromCart)="ondelFromCart($event)"
+                    >
+                    </app-del-confirm-modal>
+                    <ag-grid-angular
+                      class="ag-theme-balham"
+                      (gridReady)="ongridTradenatureReady($event)"
+                      [animateRows]="true"
+                      rowHeight="42"
+                      [columnDefs]="colDefgridTradenature"
+                      style="width: 80%; height: 200px"
+                      [gridOptions]="gridTradenatureOptions"
+                    >
+                    </ag-grid-angular>
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="PANcardNumber">Company PAN Card </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Company_PAN_Card_Number"
+                      id="Company_PAN_Card_Number"
+                      [ngClass]="{
+                        'is-invalid':
+                          Company_PAN_Card_Number.touched &&
+                          Company_PAN_Card_Number.invalid,
+                        'is-valid': !Company_PAN_Card_Number.invalid
+                      }"
+                      placeholder="Company PAN Card Number"
+                    />
+                    <div
+                      *ngIf="
+                        Company_PAN_Card_Number.touched &&
+                        Company_PAN_Card_Number.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Company_PAN_Card_Number.errors.required">
+                        Company PAN Card Number required
+                      </div>
+
+                      <div *ngIf="Company_PAN_Card_Number.errors.pattern">
+                        Invalid
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="forGSTIN"> GSTIN </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Cpmpany_GSTIN"
+                      id="Cpmpany_GSTIN"
+                      [ngClass]="{
+                        'is-invalid':
+                          Cpmpany_GSTIN.touched && Cpmpany_GSTIN.invalid,
+                        'is-valid':
+                          Cpmpany_GSTIN.touched && !Cpmpany_GSTIN.invalid
+                      }"
+                      placeholder="GSTIN"
+                    />
+                    <div
+                      *ngIf="Cpmpany_GSTIN.touched && Cpmpany_GSTIN.invalid"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Cpmpany_GSTIN.errors.pattern">
+                        Invalid GSTIN
+                      </div>
+                      <div *ngIf="Cpmpany_GSTIN.errors.GSTNotMatchWithPan">
+                        Must match with pan
+                      </div>
+                    </div>
+                    <!-- {{ Cpmpany_GSTIN.errors | json }} -->
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="ContactNumber">Contact Number </label>
+
+                    <input
+                      type="t"
+                      maxlength="10"
+                      class="form-control"
+                      formControlName="Contact_Number"
+                      id="Contact_Number"
+                      [ngClass]="{
+                        'is-invalid':
+                          Contact_Number.touched && Contact_Number.invalid,
+                        'is-valid': !Contact_Number.invalid
+                      }"
+                      placeholder="Contact Number"
+                    />
+                    <div
+                      *ngIf="Contact_Number.touched && Contact_Number.invalid"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Contact_Number.errors.maxlength">
+                        Contact Number should be just
+                        {{ Contact_Number.errors.maxlength.requiredLength }}
+                        long
+                      </div>
+                      <div *ngIf="Contact_Number.errors.required"></div>
+                      <div *ngIf="Contact_Number.errors.cannotContainSpace">
+                        Mobile number can not contain space
+                      </div>
+                      <div *ngIf="Contact_Number.errors.notNumeric">
+                        Mobile number should just be number
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col-md-12 mb-11">
+                    <label for="ContactAddress">Contact Address </label>
+                    <textarea
+                      name="Contact_Address"
+                      [ngClass]="{
+                        'is-invalid':
+                          Contact_Address.touched && Contact_Address.invalid,
+                        'is-valid': !Contact_Address.invalid
+                      }"
+                      placeholder="Contact Address"
+                      formControlName="Contact_Address"
+                      class="form-control"
+                      cols="30"
+                      rows="10"
+                    ></textarea>
+                    <!-- <input type="text" class="form-control" formControlName="Contact_Address"
+                                            id="Contact_Address"
+                                            [ngClass]="{'is-invalid':Contact_Address.touched && Contact_Address.invalid,'is-valid': !Contact_Address.invalid}"
+                                            placeholder="Contact Address"> -->
+                    <div
+                      *ngIf="Contact_Address.touched && Contact_Address.invalid"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Contact_Address.errors.required">
+                        Contact Address required
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 mb-11">
+                    <label for="WorkshopAddress">Workshop Address </label>
+                    <textarea
+                      name="Workshop_Address"
+                      [ngClass]="{
+                        'is-invalid':
+                          Workshop_Address.touched && Workshop_Address.invalid,
+                        'is-valid': !Workshop_Address.invalid
+                      }"
+                      placeholder="Workshop Address"
+                      formControlName="Workshop_Address"
+                      class="form-control"
+                      cols="30"
+                      rows="10"
+                    ></textarea>
+                    <!-- <input type="text" class="form-control" formControlName="Workshop_Address"
+                                            id="Workshop_Address"
+                                            [ngClass]="{'is-invalid':Workshop_Address.touched && Workshop_Address.invalid,'is-valid': !Workshop_Address.invalid}"
+                                            placeholder="Workshop Address"> -->
+                    <div
+                      *ngIf="
+                        Workshop_Address.touched && Workshop_Address.invalid
+                      "
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Workshop_Address.errors.required">
+                        Workshop Address required
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-12 mb-11">
+                    <label for="GodownAddress">Godown Address </label>
+                    <textarea
+                      name="Godown_Address"
+                      [ngClass]="{
+                        'is-invalid':
+                          Godown_Address.touched && Godown_Address.invalid,
+                        'is-valid': !Godown_Address.invalid
+                      }"
+                      placeholder="Godown Address"
+                      formControlName="Godown_Address"
+                      class="form-control"
+                      cols="30"
+                      rows="10"
+                    ></textarea>
+                    <!-- <input type="text" class="form-control" formControlName="Godown_Address"
+                                            id="Godown_Address"
+                                            [ngClass]="{'is-invalid':Godown_Address.touched && Godown_Address.invalid,'is-valid': !Godown_Address.invalid}"
+                                            placeholder="Godown Address"> -->
+                    <div
+                      *ngIf="Godown_Address.touched && Godown_Address.invalid"
+                      class="invalid-feedback"
+                    >
+                      <div *ngIf="Godown_Address.errors.required">
+                        Godown Address required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <hr />
+              <div class="card">
+                <div class="card-body">
+                  <form
+                    [ngClass]="{ hidden: Name_of_the_Propritor_Sole.disabled }"
+                    [formGroup]="Trade_Details_Sole"
+                  >
+                    <!-- If Type of Business Structure - Sole/Proprietorship -->
+                    <div class="form-row">
+                      <div class="col-md-4 mb-3">
+                        <label for="Name_Propritor"
+                          >Name of the Proprietor</label
+                        >
+
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="Name_of_the_Propritor_Sole"
+                          id="Name_of_the_Propritor_Sole"
+                          [ngClass]="{
+                            'is-invalid':
+                              Name_of_the_Propritor_Sole.touched &&
+                              Name_of_the_Propritor_Sole.invalid,
+                            'is-valid': !Name_of_the_Propritor_Sole.invalid
+                          }"
+                          placeholder="Name of the Proprietor"
+                        />
+                        <div
+                          *ngIf="
+                            Name_of_the_Propritor_Sole.touched &&
+                            Name_of_the_Propritor_Sole.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="Name_of_the_Propritor_Sole.errors.required"
+                          >
+                            Name of the Propritor required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <form
+                    [ngClass]="{ hidden: TotalPartners_PvtLtd.disabled }"
+                    [formGroup]="Trade_Details_Partnership"
+                  >
+                    <!-- If Type of Business Structure - PartnerShip-->
+                    <div class="form-row">
+                      <div class="col-md-3 mb-3">
+                        <label for="TotalPartners_PvtLtd">
+                          Total Partners
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="TotalPartners_PvtLtd"
+                          id="TotalPartners_PvtLtd"
+                          [ngClass]="{
+                            'is-invalid':
+                              TotalPartners_PvtLtd.touched &&
+                              TotalPartners_PvtLtd.invalid,
+                            'is-valid': !TotalPartners_PvtLtd.invalid
+                          }"
+                          placeholder="Total Partners"
+                        />
+                        <div
+                          *ngIf="
+                            TotalPartners_PvtLtd.touched &&
+                            TotalPartners_PvtLtd.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="TotalPartners_PvtLtd.errors.required">
+                            Total Partners required
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-9 mb-3">
+                        <label for="Name_PartnerPvtLtd">
+                          Name of the Partner
+                        </label>
+
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="Name_Partner_PvtLtd"
+                          id="Name_Partner_PvtLtd"
+                          [ngClass]="{
+                            'is-invalid':
+                              Name_Partner_PvtLtd.touched &&
+                              Name_Partner_PvtLtd.invalid,
+                            'is-valid': !Name_Partner_PvtLtd.invalid
+                          }"
+                          placeholder="Name of the Partner"
+                        />
+                        <div
+                          *ngIf="
+                            Name_Partner_PvtLtd.touched &&
+                            Name_Partner_PvtLtd.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="Name_Partner_PvtLtd.errors.required">
+                            Name of the Partner required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+
+                  <form
+                    [ngClass]="{ hidden: TotalDirector_Partnership.disabled }"
+                    [formGroup]="Trade_Details_Private_Ltd"
+                  >
+                    <!-- If Type of Business Structure - Partnership -->
+                    <div class="form-row">
+                      <div class="col-md-3 mb-3">
+                        <label for="TotalDirector_Partnership">
+                          Total Director
+                        </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="TotalDirector_Partnership"
+                          id="TotalDirector_Partnership"
+                          [ngClass]="{
+                            'is-invalid':
+                              TotalDirector_Partnership.touched &&
+                              TotalDirector_Partnership.invalid,
+                            'is-valid': !TotalDirector_Partnership.invalid
+                          }"
+                          placeholder="Total Director"
+                        />
+                        <div
+                          *ngIf="
+                            TotalDirector_Partnership.touched &&
+                            TotalDirector_Partnership.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div
+                            *ngIf="TotalDirector_Partnership.errors.required"
+                          >
+                            Total Director required
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Partner_Name -->
+                      <div class="col-md-9 mb-3">
+                        <label for="Director_Name">Name of the Director</label>
+
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="DirectorName_Partnership"
+                          id="DirectorName_Partnership"
+                          [ngClass]="{
+                            'is-invalid':
+                              DirectorName_Partnership.touched &&
+                              DirectorName_Partnership.invalid,
+                            'is-valid': !DirectorName_Partnership.invalid
+                          }"
+                          placeholder="Director Name"
+                        />
+                        <div
+                          *ngIf="
+                            DirectorName_Partnership.touched &&
+                            DirectorName_Partnership.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="DirectorName_Partnership.errors.required">
+                            Director Required
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <form
+                    [ngClass]="{ hidden: Father_Husband_Name.disabled }"
+                    [formGroup]="BussinessCommunication"
+                  >
+                    <div class="form-row">
+                      <div class="col-md-6 mb-3">
+                        <label for="Father_Husband_Name"
+                          >Father/Husband Name</label
+                        >
+
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="Father_Husband_Name"
+                          id="Father_Husband_Name"
+                          [ngClass]="{
+                            'is-invalid':
+                              Father_Husband_Name.touched &&
+                              Father_Husband_Name.invalid,
+                            'is-valid': !Father_Husband_Name.invalid
+                          }"
+                          placeholder="Father/Husband Name"
+                        />
+                        <div
+                          *ngIf="
+                            Father_Husband_Name.touched &&
+                            Father_Husband_Name.invalid
+                          "
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="Father_Husband_Name.errors.required">
+                            Required
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 mb-3">
+                        <label for="Address"> Address </label>
+
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="Address"
+                          id="Address"
+                          [ngClass]="{
+                            'is-invalid': Address.touched && Address.invalid,
+                            'is-valid': !Address.invalid
+                          }"
+                          placeholder="Address"
+                        />
+                        <div
+                          *ngIf="Address.touched && Address.invalid"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="Address.errors.required">Required</div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="ContactNo">Contact No.</label>
+
+                        <input
+                          type="tel"
+                          maxlength="10"
+                          class="form-control"
+                          formControlName="ContactNo"
+                          id="ContactNo"
+                          [ngClass]="{
+                            'is-invalid':
+                              ContactNo.touched && ContactNo.invalid,
+                            'is-valid': !ContactNo.invalid
+                          }"
+                          placeholder="Contact No."
+                        />
+                        <div
+                          *ngIf="ContactNo.touched && ContactNo.invalid"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="ContactNo.errors.required">
+                            Contact Number Required
+                          </div>
+                          <div *ngIf="ContactNo.errors.cannotContainSpace">
+                            Contact number can not contain space
+                          </div>
+                          <div *ngIf="ContactNo.errors.notNumeric">
+                            Should be just numbers
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                        <label for="ID_ProofName"> ID Proof </label>
+                        <select
+                          [ngClass]="{
+                            'is-invalid':
+                              ID_ProofName.touched && ID_ProofName.invalid,
+                            'is-valid': !ID_ProofName.invalid
+                          }"
+                          formControlName="ID_ProofName"
+                          id="ID_ProofName"
+                          class="form-control"
+                        >
+                          <option value="Pan Card" selected>Pan Card</option>
+                        </select>
+
+                        <div
+                          *ngIf="ID_ProofName.touched && ID_ProofName.invalid"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="ID_ProofName.errors.required">
+                            Required
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-4 mb-3">
+                        <label for="ID_Proof_No">ID Proof No. </label>
+
+                        <input
+                          type="text"
+                          class="form-control"
+                          formControlName="ID_Proof_No"
+                          id="ID_Proof_No"
+                          [ngClass]="{
+                            'is-invalid':
+                              ID_Proof_No.touched && ID_Proof_No.invalid,
+                            'is-valid': !ID_Proof_No.invalid
+                          }"
+                          placeholder="ID Proof No."
+                        />
+                        <div
+                          *ngIf="ID_Proof_No.touched && ID_Proof_No.invalid"
+                          class="invalid-feedback"
+                        >
+                          <div *ngIf="ID_Proof_No.errors.required">
+                            Required
+                          </div>
+                          <div *ngIf="ID_Proof_No.errors.pattern">Invalid</div>
+                          <!-- <div *ngIf="ID_Proof_No.errors.shouldBeSamePan">
+                            Must match with existing pan
+                          </div> -->
+                          <div *ngIf="ID_Proof_No.errors.duplicatePanId">
+                            This Pan card is already used
+                          </div>
+                          <!-- <div *ngIf="ID_Proof_No.errors.mainPanNotGiven">
+                            Main pan card not given
+                          </div> -->
+                        </div>
+                        <!-- {{ ID_Proof_No.errors | json }} -->
+                      </div>
+                    </div>
+                  </form>
+
+                  <app-pvt-del-confirm-modal></app-pvt-del-confirm-modal>
+
+                  <ag-grid-angular
+                    [hidden]="!isShowgridPvtLtd"
+                    class="ag-theme-balham"
+                    (gridReady)="ongridPvtLtdReady($event)"
+                    [animateRows]="true"
+                    rowHeight="42"
+                    [columnDefs]="colDefgridPvtLtd"
+                    style="width: 80%; height: 200px"
+                    [gridOptions]="gridPvtLtdOptions"
+                  >
+                  </ag-grid-angular>
+                </div>
+
+                <div *ngIf="isMultiple" class="card-footer text-right">
+                  <button
+                    [disabled]="shouldDisableAddToCardPvtBtn"
+                    class="btn btn-success btn-round"
+                    (click)="addToCartPvtLtd()"
+                    type="button"
+                  >
+                    <i class="fas fa-plus"></i>
+                    &nbsp; Add
+                  </button>
+                </div>
+              </div>
+            </ng-wizard-step>
+
+            <ng-wizard-step
+              [title]="'Step 3'"
+              [canExit]="isValidFunctionReview.bind(this)"
+              [description]="'Uploading documents'"
+            >
+              <form [formGroup]="Uploading_documents">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="form-row"></div>
+                    <div class="form-row">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th class="border-top-0">Mandatory Document</th>
+                            <th class="border-top-0">Upload</th>
+                          </tr>
+                        </thead>
+                      </table>
+                      <div class="col-sm-12">
+                        <div
+                          *ngFor="
+                            let tlDocGroup of Uploading_documents.controls.docs
+                              .controls;
+                            index as i
+                          "
+                        >
+                          <div class="row row-gutter" [formGroup]="tlDocGroup">
+                            <div class="col-12 col-md-6">
+                              <div class="form-group">
+                                <input
+                                  type="text"
+                                  formControlName="docname"
+                                  placeholder="File Name"
+                                  id="filename_{{ i }}"
+                                  class="form-control"
+                                  disabled
+                                />
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                              <div class="form-group">
+                                <input
+                                  style="overflow: hidden"
+                                  type="file"
+                                  formControlName="docfile"
+                                  placeholder="Select File"
+                                  id="file_{{ i }}"
+                                  class="form-control"
+                                  (change)="
+                                    onDocFileChange(
+                                      $event,
+                                      tlDocGroup.value.docname
+                                    )
+                                  "
+                                />
+                              </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                              <div class="form-group">
+                                <input
+                                  type="text"
+                                  style="display: none"
+                                  formControlName="docpath"
+                                  placeholder="File path"
+                                  id="docpath_{{ i }}"
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <div class="table-responsive">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th class="border-top-0">Mandatory Document</th>
+                                <th class="border-top-0">Upload</th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+                              <tr
+                                *ngFor="
+                                  let tlDocGroup of Uploading_documents.controls
+                                    .docs.controls;
+                                  index as i
+                                "
+                              >
+                                  <td>
+                                    <input
+                                      type="text"
+                                      formControlName="docname"
+                                      placeholder="File Name"
+                                      id="filename_{{ i }}"
+                                      class="form-control"
+                                    />
+                                  </td>
+                                  <td>
+                                    <input
+                                      type="file"
+                                      formControlName="docfile"
+                                      placeholder="Select File"
+                                      id="file_{{ i }}"
+                                      class="form-control"
+                                    />
+
+                                    <input
+                                      type="text"
+                                      style="display: none"
+                                      formControlName="docpath"
+                                      placeholder="File path"
+                                      id="docpath_{{ i }}"
+                                      class="form-control"
+                                    />
+                                  </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </ng-wizard-step>
+
+            <ng-wizard-step
+              [title]="'Step 4'"
+              [description]="'Review and Submit'"
+            >
+              <form [formGroup]="Review_and_Submit">
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="Assessee_HoldingNo"
+                      >Assessee / Holding No.
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Assessee_Holding_No"
+                      id="Assessee_Holding_No"
+                    />
+                  </div>
+                  <div class="col-md-8 mb-3">
+                    <label for="OwnerName">Owner Name </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Owner_Name"
+                      id="Owner_Name"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-12 mb-3">
+                    <label for="Street_Road">Street/Road Name/Address </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Street_Road_Name"
+                      id="Street_Road_Name"
+                    />
+                  </div>
+                  <div class="col-md-8 mb-3">
+                    <label for="LocalityName"
+                      >Locality Name(Google Incorporate)
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Locality_Name"
+                      id="Locality_Name"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="WardNo_Councilor">Ward Number </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="WardNo_CouncilorName"
+                      id="AmountPaid_PropertyTax"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                      <label class="d-block">Type of tax</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="Type_Of_Tax"
+                        id="Type_Of_Tax"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="AmountPaidPropertyTax"
+                      >Amount Paid For Property Tax(Rs.)
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="AmountPaid_PropertyTax"
+                      id="AmountPaid_PropertyTax"
+                    />
+                  </div>
+                  <!-- Bind with Land Nature -->
+                  <div class="col-md-4 mb-3">
+                    <label for="TypeOfRelationWithLand"
+                      >Type of relation with land
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="TypeOf_Relation_With_Land"
+                      id="Name_Firm_Company"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-3 mb-3">
+                    <label for="Type_Business_Structure"
+                      >Type of Business
+                    </label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Type_Of_Business_Structure"
+                      id="Type_Of_Business_Structure"
+                    />
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <label for="For_the_year">For the year </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="For_the_Finalcial_year"
+                      id="Name_Firm_Company"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="Name_Firm_Company"
+                      >Name of the Firm/Company
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Name_Firm_Company"
+                      id="Name_Firm_Company"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col-md-12 mb-3">
+                    <label>Trade Nature Details</label>
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Trade Type</th>
+                            <th>Trade Nature</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let trade of objTradeTypeCart">
+                            <td>{{ trade.tradeType }}</td>
+                            <td>{{ trade.tradeNature }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- <ag-grid-angular class="ag-theme-balham"
+                                        (gridReady)="ongridTradenatureReady1($event)" [animateRows]="true"
+                                        rowHeight="42" [columnDefs]="colDefgridTradenature1"
+                                        style="width: 80%;height: 200px;">
+                                    </ag-grid-angular> -->
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col-md-3 mb-3">
+                    <label for="Date_ofCommenencement"
+                      >Date of Commenencement
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Date_of_Commenencement"
+                      id="Date_of_Commenencement"
+                    />
+                  </div>
+                  <div class="col-md-9 mb-3">
+                    <label for="Investment_Capital"
+                      >Investment of Capital(Rs)
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Investment_Of_Capital"
+                      id="Investment_Of_Capital"
+                    />
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="forGSTIN"> GSTIN </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Cpmpany_GSTIN"
+                      id="Cpmpany_GSTIN"
+                      placeholder="GSTIN"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="PANcardNumber">Company PAN Card </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="Company_PAN_Card_Number"
+                      id="Company_PAN_Card_Number"
+                    />
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="ContactNumber">Contact Number </label>
+
+                    <input
+                      type="t"
+                      maxlength="10"
+                      class="form-control"
+                      formControlName="Contact_Number"
+                      id="Contact_Number"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col-md-12 mb-11">
+                    <label for="ContactAddress">Contact Address </label>
+                    <textarea
+                      name="Contact_Address"
+                      formControlName="Contact_Address"
+                      class="form-control"
+                      cols="30"
+                      rows="10"
+                    ></textarea>
+                  </div>
+
+                  <div class="col-md-12 mb-11">
+                    <label for="WorkshopAddress">Workshop Address </label>
+                    <textarea
+                      name="Workshop_Address"
+                      formControlName="Workshop_Address"
+                      class="form-control"
+                      cols="30"
+                      rows="10"
+                    ></textarea>
+                  </div>
+                  <div class="col-md-12 mb-11">
+                    <label for="GodownAddress">Godown Address </label>
+                    <textarea
+                      name="Godown_Address"
+                      formControlName="Godown_Address"
+                      class="form-control"
+                      cols="30"
+                      rows="10"
+                    ></textarea>
+                  </div>
+                </div>
+                <!-- Grid of Owner -->
+                <div class="form-row">
+                  <div class="col-md-12 mb-3">
+                    <label>Owner Details</label>
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>Father/Husband Name</th>
+                            <th>Address</th>
+                            <th>Contact No.</th>
+                            <th>ID Proof</th>
+                            <th>ID Proof No.</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let owner of objPvtCart">
+                            <td>{{ owner.dirName }}</td>
+                            <td>{{ owner.fHName }}</td>
+                            <td>{{ owner.address }}</td>
+                            <td>{{ owner.ContactNo }}</td>
+                            <td>PAN Card</td>
+                            <td>{{ owner.idProofNo }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <!-- Grid Documents -->
+                <div class="form-row">
+                  <div class="col-md-12 mb-3">
+                    <label>File Details</label>
+                    <div class="table-responsive">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Doc Name</th>
+                            <th>File</th>
+                            <th>View</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let docs of docsReview">
+                            <td>{{ docs.Document_name }}</td>
+                            <td>{{ docs.Doc_path }}</td>
+                            <td>
+                              <button
+                                class="btn btn-sm btn-primary"
+                                (click)="showModal(docs.Document_name)"
+                              >
+                                SHOW
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </ng-wizard-step>
+
+            <!-- <ng-wizard-step [title]="'Step 5'" [description]="'Payment'">
+              <form [formGroup]="paymentForm">
+                <div class="card">
+                  <label
+                    for="amountpaid"
+                    class="form-check-label col-sm-2 col-from-label"
+                    style="margin: 0 15px"
+                    >Amount paid
+                  </label>
+                  <div class="col-sm-7">
+                    <input
+                      class="form-control"
+                      readonly
+                      style="margin-left: 12px"
+                      type="text"
+                      formControlName="isPaid"
+                      id="isPaid"
+                    />
+                  </div>
+                </div>
+              </form>
+            </ng-wizard-step> -->
+          </ng-wizard>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- the properties being sent from here should exist within that component, send fileid and filevalue and then render there -->
+<app-show-the-modal
+  [encodeImageObject]="encodeImageObject"
+  [shouldModalOpen]="shouldAttachmentViewerModalOpen"
+  (emitter)="closeModal($event)"
+></app-show-the-modal>
+
+<!-- Modal For Payment [Start] -->
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-backdrop="static"
+  data-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl"
+  >
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5
+          *ngIf="recivedFormResonseForTL.length > 0"
+          class="modal-title"
+          id="staticBackdropLabel"
+        >
+          {{ recivedFormResonseForTL[0]["FormNumber"] }}
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-1">
+            <div
+              class="logo d-flex h-100 justify-content-center align-items-center"
+            >
+              <img
+                *ngIf="recivedFormResonseForTL.length > 0"
+                src="{{ recivedFormResonseForTL[0].Comp_Logo }}"
+                alt="HALDIA_MUNICIPLAITY"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="text-center">
+              <span class="d-block">Office Copy</span>
+              <h1 class="mb-0" style="font-size: 1.55rem">FORM-39</h1>
+              <span class="d-block">[ Vide Rule 105, 121 & 122 ]</span>
+              <span class="d-block font-weight-bold"
+                >MISCELLANEOUS RECEIPT</span
+              >
+              <h3 style="font-weight: bold; font-size: 1rem">
+                HALDIA MUNICIPALITY
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="row justify-content-between mt-2"
+          *ngIf="recivedFormResonseForTL.length > 0"
+        >
+          <div class="col">
+            RECEIPT NO: {{ recivedFormResonseForTL[0].ReceiptNo }}
+          </div>
+          <div class="col text-right">
+            Payment Date: {{ recivedFormResonseForTL[0]["paymentdate"] }}
+          </div>
+        </div>
+
+        <div class="row mt-3" *ngIf="recivedFormResonseForTL.length > 0">
+          <div class="col-12">
+            <!-- new table -->
+            <div class="row">
+              <div class="col-2">Received From</div>
+              <div class="col-10">
+                :&nbsp;&nbsp;{{ recivedFormResonseForTL[0].ReceivedFrom }}
+              </div>
+
+              <div class="col-2">The Sum of Rs</div>
+              <div class="col-10">:&nbsp;&nbsp;Fifty Rupees</div>
+
+              <!-- <div class="col-2">On Account Of</div>
+              <div class="col-10">
+                :&nbsp;&nbsp;1401004 - REGISTRATION OF PREOFESSIONAL/ENLISTMENT
+                FEES
+              </div> -->
+
+              <div class="col-2">Rs</div>
+              <div class="col-10">
+                :&nbsp;&nbsp;{{ recivedFormResonseForTL[0].Amount }}
+              </div>
+
+              <!-- <div class="col-2">Remarks</div>
+              <div class="col-10">
+                :&nbsp;&nbsp;Registration No. u/s 118 1257
+              </div> -->
+
+              <div class="col-2">Entered By</div>
+              <div class="col-10">
+                :&nbsp;&nbsp;{{ recivedFormResonseForTL[0].ReceivedFrom }}
+              </div>
+
+              <div class="col-2">Application Number</div>
+              <div class="col-10">
+                :&nbsp;&nbsp;{{ recivedFormResonseForTL[0].FormNumber }}
+              </div>
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-between mt-3">
+            <img
+              src="http://pngimg.com/uploads/qr_code/qr_code_PNG38.png"
+              alt=""
+              class="img-fluid img-responsive"
+              style="height: 100px"
+            />
+
+            <div class="signature mt-1" style="text-align: center">
+              <img
+                *ngIf="recivedFormResonseForTL.length > 0"
+                style="
+                  overflow: hidden;
+                  width: 75px;
+                  height: 75px;
+                  mix-blend-mode: multiply;
+                "
+                src="{{ recivedFormResonseForTL[0].TL_form_receipt_sig }}"
+                alt="signature"
+                class="img-fluid img-responsive"
+              />
+              <p>Executive Officer/Authorized Officer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal For Payment [End] -->

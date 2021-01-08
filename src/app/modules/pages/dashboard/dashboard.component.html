@@ -1,0 +1,554 @@
+<!-- <div class="pcoded-content">
+  <div class="page-header">
+    <div class="page-block">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="page-header-title">
+            <h5 class="m-b-10">Dashboard</h5>
+          </div>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a [routerLink]="'/members/dash'">Home</a>
+            </li>
+            <li class="breadcrumb-item">Dashboard</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">Trade Licese</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-xl-12 col-md-12">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card prod-p-card background-pattern">
+                <div class="card-body">
+                  <div class="row align-items-center m-b-0">
+                    <div class="col">
+                      <h6 class="m-b-5">Number Of Trade</h6>
+                      <h3 class="m-b-0">1,783</h3>
+                    </div>
+
+                    <div class="col-auto">
+                      <i class="fas fa-list-ol text-primary"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card prod-p-card bg-primary background-pattern-white">
+                <div class="card-body">
+                  <div class="row align-items-center m-b-0">
+                    <div class="col">
+                      <h6 class="m-b-5 text-white">Pending Docs</h6>
+                      <BR />
+                      <h3 class="m-b-0 text-white">15,830</h3>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-file text-white"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card prod-p-card bg-primary background-pattern-white">
+                <div class="card-body">
+                  <div class="row align-items-center m-b-0">
+                    <div class="col">
+                      <h6 class="m-b-5 text-white">Certificate Issue</h6>
+                      <h3 class="m-b-0 text-white">6,780</h3>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-certificate text-white"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card prod-p-card background-pattern">
+                <div class="card-body">
+                  <div class="row align-items-center m-b-0">
+                    <div class="col">
+                      <h6 class="m-b-5">Pending Payment</h6>
+                      <h3 class="m-b-0">6,784</h3>
+                    </div>
+                    <div class="col-auto">
+                      <i class="fas fa-money-bill-alt text-primary"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <canvas
+            baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [colors]="pieChartColors"
+            [legend]="pieChartLegend"
+          >
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-header">
+          <label>Select file number to check status</label>
+          <select name="filenumber" id="ddlFilenumber" class="form-control">
+            <option value="0">Select File Number</option>
+            <option value="1">FILE/2004/0000001</option>
+            <option value="2">FILE/2004/0000002</option>
+            <option value="3">FILE/2004/0000003</option>
+          </select>
+        </div>
+        <div class="card-body">
+          <ul class="list-unstyled task-list">
+            <li>
+              <i class="feather icon-check f-w-600 task-icon bg-danger"></i>
+              <p class="m-b-5">8:50</p>
+              <h6 class="text-muted">
+                Your file is on soft hold due to pending payment to officer M.K
+                Jana.
+              </h6>
+            </li>
+
+            <li>
+              <i class="task-icon bg-success"></i>
+              <p class="m-b-5">Sun, 17 Apr, 2020</p>
+              <h6 class="text-muted">Your file has been processed</h6>
+            </li>
+            <li>
+              <i class="task-icon bg-warning"></i>
+              <p class="m-b-5">Sat, 25 Mar, 2020</p>
+              <h6 class="text-muted">
+                Your file is in Inactive state due to doc pending
+              </h6>
+            </li>
+            <li class="pb-2 mb-0">
+              <i class="task-icon bg-info"></i>
+              <p class="m-b-5">Sat, 22 Mar, 2020</p>
+              <h6 class="text-muted">
+                Your file has been received by officer L.K Mehta.
+              </h6>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-body">Property Tax</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="card prod-p-card background-pattern">
+        <div class="card-body">
+          <div class="row align-items-center m-b-0">
+            <div class="col">
+              <h6 class="m-b-5">Number Of Property Tax</h6>
+              <h3 class="m-b-0">1,488</h3>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-list-ol text-primary"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card prod-p-card bg-primary background-pattern-white">
+        <div class="card-body">
+          <div class="row align-items-center m-b-0">
+            <div class="col">
+              <h6 class="m-b-5 text-white">Pending Tax Docs</h6>
+              <h3 class="m-b-0 text-white">4,838</h3>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-file text-white"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card prod-p-card background-pattern">
+        <div class="card-body">
+          <div class="row align-items-center m-b-0">
+            <div class="col">
+              <h6 class="m-b-5">Payment Property Tax</h6>
+              <h3 class="m-b-0">9,794</h3>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-money-bill-alt text-primary"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card prod-p-card bg-primary background-pattern-white">
+        <div class="card-body">
+          <div class="row align-items-center m-b-0">
+            <div class="col">
+              <h6 class="m-b-5 text-white">Certificate Issue</h6>
+              <h3 class="m-b-0 text-white">7,789</h3>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-certificate text-white"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <section class="assignedToMe">
+    <h4 class="text-white bg-dark py-3 px-3 my-0">
+      Activities assigned to {{ loggedUser }}
+    </h4>
+    <div
+      class="table-wrapper-border border border-1 border-dark px-3 pt-3 pb-0"
+    >
+      <div class="d-flex justify-content-between">
+        <div>
+          <span>Show</span
+          ><select name="" id="" class="ml-2">
+            <option value="10" selected="" ng-reflect-value="10">10</option>
+            <option value="20" ng-reflect-value="20">20</option>
+            <option value="30" ng-reflect-value="30">30</option></select
+          ><span class="ml-2">entries</span>
+        </div>
+        <div>
+          <div class="form-group">
+            <input
+              type="text"
+              placeholder="Quick search"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="thead-light">
+              <tr>
+                <th>Action</th>
+                <th>Form ID</th>
+                <th>Year</th>
+                <th>Status</th>
+                <th>Type</th>
+                <th>Applied Date</th>
+                <th>Ward No</th>
+                <th>Comapny/Firm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr>
+                <td><a href="#">LTLN2017771</a></td>
+                <td>2020-2021</td>
+                <td>Applied</td>
+                <td>New Trade Enlishment</td>
+                <td>12/10/2020</td>
+                <td>3</td>
+                <td>Test</td>
+                <td>
+                  <button class="btn btn-primary btn-sm">
+                    <i class="fa fa-arrow-right"></i>
+                  </button>
+                </td>
+              </tr> -->
+              <!-- based on the number of items it should make that many row with following table data; here to format
+              the value; just use a custom pipe -->
+              <tr
+                *ngFor="
+                  let response of responseToShowWithinTable;
+                  let i = index
+                "
+              >
+                <td>
+                  <!-- <button
+                    class="btn btn-primary btn-sm"
+                    (click)="onFormNoClick(response['Form_No'])"
+                  >
+                    <i class="fa fa-arrow-right"></i>
+                  </button> -->
+                  <div class="btn-group dropdown">
+                    <button
+                      class="btn btn-primary btn-sm dropdown-toggle"
+                      id="dropdownMenuButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      type="button"
+                    ></button>
+                    <div
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                    >
+                      <a
+                        class="dropdown-item"
+                        (click)="onFormNoClick($event, response['Form_No'])"
+                        >View</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        (click)="onFormNoClick($event, response['Form_No'])"
+                        >Process</a
+                      >
+                      <a
+                        class="dropdown-item"
+                        data-toggle="modal"
+                        data-target="#theFollowUp"
+                        (click)="onFormNoClick($event, response['Form_No'])"
+                        >Followup</a
+                      >
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  {{ response["Form_No"] }}
+                </td>
+                <td>{{ response["Fin_Year_Sht_Name"] }}</td>
+                <td>{{ response["Status_Name"] }}</td>
+                <td>{{ response["TL_Type"] }}</td>
+                <td>{{ response["Applied_On"] }}</td>
+                <td>{{ response["Ward_No"] }}</td>
+                <td>{{ response["Name_Org"] }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <span>Showing 1 of 50</span>
+        <div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a href="#" tabindex="-1" aria-disabled="true" class="page-link"
+                  >Previous</a
+                >
+              </li>
+              <li class="page-item"><a href="#" class="page-link">1</a></li>
+              <li class="page-item"><a href="#" class="page-link">2</a></li>
+              <li class="page-item"><a href="#" class="page-link">3</a></li>
+              <li class="page-item"><a href="#" class="page-link">Next</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- follow up modal here -->
+<div
+  class="modal fade"
+  id="theFollowUp"
+  data-backdrop="static"
+  data-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5
+          *ngIf="formTradeFollowUpValues.length > 0"
+          class="modal-title"
+          id="staticBackdropLabel"
+        >
+          Followup details
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true" (click)="onModalHide()">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="formTradeFollowUpValues.length > 0">
+        <!-- start -->
+        <!-- <div class="row">
+          <div class="section-title p-2 mb-3">
+            <h5 class="section-title w-100 p-2">
+              {{ formTradeFollowUpValues[0].Followup_Date }}
+            </h5>
+          </div>
+
+          <div class="col-12">
+            <div class="row justify-content-between my-3">
+              <div class="col-4">
+                <span
+                  >Followup user:
+                  {{ formTradeFollowUpValues[0].Followup_by_user_name }}
+                </span>
+              </div>
+            </div>
+
+            <div class="row justify-content-between my-3">
+              <div class="col-4">
+                <span
+                  >Next action:
+                  {{ formTradeFollowUpValues[0].Next_Followup_by_user_name }}
+                </span>
+              </div>
+            </div>
+
+            <hr />
+            <div class="row justify-content-between my-3">
+              <div class="col-4">
+                <span
+                  >Remarks:
+                  {{ formTradeFollowUpValues[0].Remarks }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="row">
+          <div class="col-6">
+            <div class="timeline">
+              <div class="timeline-body">
+                <div class="timeline-item">
+                  <p class="time">
+                    {{ formTradeFollowUpValues[0].Followup_Date }}
+                  </p>
+                  <div class="content">
+                    <h2
+                      class="title"
+                      style="font-size: 1.25rem; font-weight: 500"
+                    >
+                      {{ formTradeFollowUpValues[0].Followup_by_user_name }}
+                      <span style="font-size: 1rem"
+                        >{{ formTradeFollowUpValues[0].Form_Status }}
+                      </span>
+                    </h2>
+                    <p>{{ formTradeFollowUpValues[0].Remarks }}</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <p class="time">
+                    {{ formTradeFollowUpValues[0].Followup_Date }}
+                  </p>
+                  <div class="content">
+                    <h2
+                      class="title"
+                      style="font-size: 1.25rem; font-weight: 500"
+                    >
+                      {{ formTradeFollowUpValues[0].Followup_by_user_name }}
+                      <span style="font-size: 1rem"
+                        >{{ formTradeFollowUpValues[0].Form_Status }}
+                      </span>
+                    </h2>
+                    <p>{{ formTradeFollowUpValues[0].Remarks }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <form [formGroup]="followUpForm" (ngSubmit)="onFollupSubmit()">
+              <div class="form-group">
+                <label for="selectForwardorHold">Forward To:</label>
+                <select
+                  class="form-control"
+                  id="selectForward"
+                  formControlName="nextFollowUp"
+                >
+                  <option value="default" selected>
+                    Select an option here
+                  </option>
+                  <option value="hold">Hold</option>
+                  <option value="forward">Forward</option>
+                </select>
+                <!-- <div *ngIf=""></div> -->
+              </div>
+              <div class="form-group" *ngIf="shouldShowForwardTo">
+                <label for="selectForwardorHold">User Type:</label>
+                <select class="form-control" id="selectForward">
+                  <option value="">citizen</option>
+                  <option value="">user</option>
+                </select>
+              </div>
+              <div
+                class="form-group"
+                *ngIf="shouldShowForwardTo || shouldShowUserList"
+              >
+                <label for="selectForwardorHold">User List: </label>
+                <!-- whatever option user selects/types would be retrievable from this formcontrolname -->
+                <select
+                  class="form-control"
+                  id="selectForward"
+                  formControlName="showUserType"
+                >
+                  <!-- option value and content would be from api -->
+                  <option
+                    *ngFor="let user of userNameViaFormNo"
+                    [value]="user['Name']"
+                  >
+                    {{ user.Name }}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Remarks</label>
+                <textarea
+                  formControlName="remarks"
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary btn-sm">
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- to -->
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="onModalHide()"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Followup/Forward</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,508 @@
+<div class="pcoded-content">
+  <!-- [ breadcrumb ] start -->
+  <div class="page-header">
+    <div class="page-block">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="page-header-title">
+            <h5 class="m-b-10">Registration</h5>
+          </div>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+            <li class="breadcrumb-item">Registration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5>Citizen Information Wizard</h5>
+        </div>
+
+        <div class="card-body border-bottom">
+          <div class="form-group row mb-0">
+            <label class="col-form-label col-lg-3 col-sm-12 text-lg-right"
+              >Email:</label
+            >
+            <div class="col-lg-4 col-md-9 col-sm-12">
+              <input
+                type="email"
+                class="form-control"
+                id="emailAdd"
+                value="{{ emailGlobal }}"
+                aria-describedby="emailHelp"
+                readonly
+              />
+            </div>
+
+            <div class="col-lg-4 col-md-9 col-sm-12">
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                value="{{ userInfoForm.get('Name').value }}"
+                aria-describedby="Name"
+                readonly
+              />
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <ng-wizard [config]="config" (stepChanged)="stepChanged($event)">
+            <ng-wizard-step
+              [title]="'Step 1'"
+              [description]="'User Information'"
+              [canEnter]="isValidTypeBoolean"
+              [canExit]="isValidFunctionReturnsBoolean.bind(this)"
+            >
+              <form [formGroup]="userInfoForm">
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="UserType">User Type</label>
+                    <select formControlName="UserType" class="form-control">
+                      <option value="SELF">SELF</option>
+                      <option value="COMPANY">COMPANY</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="Name">Name</label>
+                    <input
+                      type="text"
+                      formControlName="Name"
+                      class="form-control"
+                      id="Name"
+                      placeholder="Name"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="ComapnyName">Comapny Name</label>
+                    <input
+                      type="text"
+                      formControlName="ComapnyName"
+                      class="form-control"
+                      id="ComapnyName"
+                      placeholder="Comapny Name"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div style="display: none">
+                    <label for="emailAdd">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="emailAdd"
+                      formControlName="EmailId"
+                      aria-describedby="emailHelp"
+                      placeholder="Email address"
+                      readonly
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="mobNumber">Mobile Number</label>
+                    <input
+                      class="form-control"
+                      type="tel"
+                      formControlName="MobileNo"
+                      placeholder="Mobile Number"
+                      id="mobNumber"
+                      readonly
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="DOB">Date Of Birth</label>
+                    <input
+                      class="form-control"
+                      type="date"
+                      [ngClass]="{
+                        'is-invalid': DOB.touched && DOB.invalid,
+                        'is-valid': !DOB.invalid
+                      }"
+                      formControlName="DOB"
+                      id="DOB"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="Gender">Gender</label>
+                    <select
+                      id="Gender"
+                      [ngClass]="{
+                        'is-invalid': Gender.touched && Gender.invalid,
+                        'is-valid': !Gender.invalid
+                      }"
+                      formControlName="Gender"
+                      class="form-control"
+                    >
+                      <option value="0">Select</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </ng-wizard-step>
+
+            <ng-wizard-step
+              [title]="'Step 2'"
+              [description]="'Address Information'"
+              [canExit]="isValidFunctionAddress.bind(this)"
+              [state]="stepStates.normal"
+            >
+              <form [formGroup]="addressForm">
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="Road_Name">Road Name</label>
+                    <input
+                      type="text"
+                      formControlName="Road_Name"
+                      class="form-control"
+                      id="roadName"
+                      [ngClass]="{
+                        'is-invalid': Road_Name.touched && Road_Name.invalid,
+                        'is-valid': !Road_Name.invalid
+                      }"
+                      placeholder="Road Name"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="Locality_Name">Locality Name</label>
+                    <input
+                      type="text"
+                      formControlName="Locality_Name"
+                      class="form-control"
+                      id="Locality_Name"
+                      [ngClass]="{
+                        'is-invalid':
+                          Locality_Name.touched && Locality_Name.invalid,
+                        'is-valid': !Locality_Name.invalid
+                      }"
+                      id="Locality_Name"
+                      placeholder="Locality Name"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="districtName">District</label>
+                    <input
+                      formControlName="District"
+                      type="text"
+                      class="form-control"
+                      id="District"
+                      [ngClass]="{
+                        'is-invalid': District.touched && District.invalid,
+                        'is-valid': !District.invalid
+                      }"
+                      placeholder="District"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="state">State</label>
+                    <select
+                      id="state"
+                      formControlName="State"
+                      [ngClass]="{
+                        'is-invalid': State.touched && State.invalid,
+                        'is-valid': !State.invalid
+                      }"
+                      class="form-control"
+                    >
+                      <option selected>State</option>
+                      <option>West Bengal</option>
+                      <option>Orissa</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="Pin_Code">Pin Code</label>
+                    <input
+                      type="number"
+                      formControlName="Pin_Code"
+                      [ngClass]="{
+                        'is-invalid': Pin_Code.touched && Pin_Code.invalid,
+                        'is-valid': !Pin_Code.invalid
+                      }"
+                      class="form-control"
+                      id="pinCode"
+                      placeholder="Pin Code"
+                    />
+                  </div>
+                </div>
+              </form>
+            </ng-wizard-step>
+
+            <ng-wizard-step
+              [title]="'Step 3'"
+              [description]="'Personal Identity Information'"
+              [canExit]="isValidFunctionPersonalIdentity.bind(this)"
+            >
+              <form [formGroup]="PersonalIdentityForm">
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="idProof">ID Proof</label>
+                    <select
+                      formControlName="IDProof_Name"
+                      id="idProof"
+                      class="form-control"
+                    >
+                      <option
+                        *ngFor="let type of idproofs"
+                        [value]="type.Document_Type"
+                      >
+                        {{ type.Document_Type }}
+                      </option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="idProofNo">ID Proof Number</label>
+                    <input
+                      type="text"
+                      formControlName="IDProof_Number"
+                      [ngClass]="{
+                        'is-invalid':
+                          IDProof_Number.touched && IDProof_Number.invalid,
+                        'is-valid': !IDProof_Number.invalid
+                      }"
+                      class="form-control"
+                      id="idProofNo"
+                      placeholder="ID Proof Number"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="idProofFile">ID Proof File</label>
+                    <input
+                      style="overflow: hidden"
+                      formControlName="IDProofFile_Path"
+                      class="form-control"
+                      id="idProofFile"
+                      type="file"
+                      (change)="onFileUpload($event)"
+                    />
+                  </div>
+                </div>
+              </form>
+            </ng-wizard-step>
+
+            <ng-wizard-step
+              [title]="'Step 4'"
+              [description]="'Review and Submit'"
+            >
+              <form [formGroup]="userSummary">
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="UserType">User Type</label>
+                    <select formControlName="UserType" class="form-control">
+                      <option value="SELF">SELF</option>
+                      <option value="COMPANY">COMPANY</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="Name">Name</label>
+                    <input
+                      type="text"
+                      formControlName="Name"
+                      class="form-control"
+                      id="Name"
+                      placeholder="Name"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="ComapnyName">Comapny Name</label>
+                    <input
+                      type="text"
+                      formControlName="ComapnyName"
+                      class="form-control"
+                      id="ComapnyName"
+                      placeholder="Comapny Name"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="emailAdd">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="emailAdd"
+                      formControlName="EmailId"
+                      aria-describedby="emailHelp"
+                      placeholder="Email address"
+                      readonly
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="mobNumber">Mobile Number</label>
+                    <input
+                      class="form-control"
+                      type="tel"
+                      formControlName="MobileNo"
+                      placeholder="Mobile Number"
+                      id="mobNumber"
+                      readonly
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="DOB">Date Of Birth</label>
+                    <input
+                      class="form-control"
+                      type="date"
+                      formControlName="DOB"
+                      id="DOB"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="Gender">Gender</label>
+                    <select
+                      id="Gender"
+                      formControlName="Gender"
+                      class="form-control"
+                    >
+                      <option value="0">Select</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="idProof">ID Proof</label>
+                    <select
+                      formControlName="IDProof_Name"
+                      id="idProof"
+                      class="form-control"
+                    >
+                      <option
+                        *ngFor="let type of idproofs"
+                        [value]="type.Document_Type"
+                      >
+                        {{ type.Document_Type }}
+                      </option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="idProofNo">ID Proof Number</label>
+                    <input
+                      type="number"
+                      formControlName="IDProof_Number"
+                      class="form-control"
+                      id="idProofNo"
+                      placeholder="ID Proof Number"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="Road_Name">Road Name</label>
+                    <input
+                      type="text"
+                      formControlName="Road_Name"
+                      class="form-control"
+                      id="roadName"
+                      placeholder="Road Name"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="Locality_Name">Locality Name</label>
+                    <input
+                      type="text"
+                      formControlName="Locality_Name"
+                      class="form-control"
+                      id="Locality_Name"
+                      placeholder="Locality Name"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="districtName">District</label>
+                    <input
+                      formControlName="District"
+                      type="text"
+                      class="form-control"
+                      id="District"
+                      placeholder="District"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <label for="state">State</label>
+                    <select
+                      id="state"
+                      formControlName="State"
+                      class="form-control"
+                    >
+                      <option selected>State</option>
+                      <option>West Bengal</option>
+                      <option>Orissa</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="Pin_Code">Pin Code</label>
+                    <input
+                      type="number"
+                      formControlName="Pin_Code"
+                      class="form-control"
+                      id="pinCode"
+                      placeholder="Pin Code"
+                    />
+                  </div>
+                  <div class="col-md-4 mb-3 d-block">
+                    <label for="view_file">View File</label>
+                    <!-- <button
+                      class="btn btn-sm btn-primary"
+                      (click)="showModal()"
+                    >
+                      VIEW
+                    </button> -->
+                    <!-- <button
+                      class="btn btn-sm btn-primary"
+                      (click)="showModal()"
+                    >
+                      <i class="fas fa-image"></i>
+                      View
+                    </button> -->
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <button
+                          class="btn btn-sm btn-primary"
+                          type="button"
+                          (click)="showModal()"
+                        >
+                          <i class="fas fa-image"></i>
+                          View
+                        </button>
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="File Name"
+                        value="{{ saveImageName }}"
+                        aria-label=""
+                        aria-describedby="basic-addon1"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </ng-wizard-step>
+          </ng-wizard>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-show-the-modal
+  [encodeImageObject]="encodeImageObject"
+  [shouldModalOpen]="shouldAttachmentViewerModalOpen"
+  (emitter)="closeModal($event)"
+></app-show-the-modal>

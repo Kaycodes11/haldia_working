@@ -1,0 +1,93 @@
+<!-- <div class="pcoded-content">
+
+    <div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">Registration</h5>
+                    </div>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                        <li class="breadcrumb-item">Registration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Citizen Information Wizard</h5>
+                </div>
+                <div class="card-body">
+                    <ng-wizard [config]="config" (stepChanged)="stepChanged($event)">
+
+                        <ng-wizard-step [title]="'Step 1'" [description]="'User Information'"
+                            [canEnter]="isValidTypeBoolean" [canExit]="moveDirection.bind(this, formStep1.valid)">
+                            <form [formGroup]="formStep1">
+                                <div class="form-row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="userType">
+                                            User Name</label>
+                                        <input formControlName="username" type="text" class="form-control"
+                                            placeholder="Email Address" />
+
+                                        <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+                                            <div *ngIf="username.errors.required">Username required</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="userType">
+                                            User Email</label>
+                                        <input formControlName="email" type="text" class="form-control"
+                                            placeholder="Email Address" />
+
+                                        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                                            <div *ngIf="email.errors.required">Email required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </ng-wizard-step>
+
+                        <ng-wizard-step [title]="'Step 2'" [description]="'Address Information'"
+                            [canExit]="moveDirection.bind(this, formStep2.valid)"
+                            [state]="stepStates.normal">
+                            <form [formGroup]="formStep2">
+                                <div class="form-row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="userType">
+                                            Address</label>
+                                        <input formControlName="address" type="text" class="form-control"
+                                            placeholder="Address" />
+
+                                        <div *ngIf="address.touched && address.invalid" class="alert alert-danger">
+                                            <div *ngIf="address.errors.required">address required</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="userType">
+                                            pincode</label>
+                                        <input formControlName="pincode" type="text" class="form-control"
+                                            placeholder="pincode" />
+
+                                        <div *ngIf="pincode.touched && pincode.invalid" class="alert alert-danger">
+                                            <div *ngIf="pincode.errors.required">pincode required</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </ng-wizard-step>
+
+                    </ng-wizard>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div> -->

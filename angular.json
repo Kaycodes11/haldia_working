@@ -23,14 +23,51 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/haldialogo.png", "src/assets"],
             "styles": [
-              "src/styles.scss"
+              "src/assets/css/style.css",
+              "src/assets/css/plugins/select2.min.css",
+              "src/assets/css/plugins/bootstrap-select.min.css",
+              "src/assets/css/customizer.css",
+              "src/assets/css/plugins/smart_wizard.min.css",
+              "src/assets/css/plugins/smart_wizard_theme_dots.min.css",
+              "src/assets/css/plugins/smart_wizard_theme_circles.min.css",
+              "src/assets/css/plugins/smart_wizard_theme_arrows.min.css",
+              "node_modules/syncfusion-javascript/Content/ej/web/bootstrap-theme/ej.web.all.min.css",
+              "node_modules/ng-wizard/themes/ng_wizard.min.css",
+              "node_modules/ng-wizard/themes/ng_wizard_theme_arrows.min.css",
+              "node_modules/ng-wizard/themes/ng_wizard_theme_circles.min.css",
+              "node_modules/ng-wizard/themes/ng_wizard_theme_dots.min.css",
+              "src/assets/fonts/font-awsome-pro/css/pro.min.css",
+              "src/assets/fonts/feather.css",
+              "src/assets/fonts/fontawesome.css",
+              "node_modules/sweetalert2/src/sweetalert2.scss",
+              "src/assets/css/plugins/bootstrap-datepicker3.min.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/ag-grid-community/dist/styles/ag-grid.css",
+              "node_modules/ag-grid-community/dist/styles/ag-theme-balham.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/vendor-all.min.js",
+              "src/assets/js/plugins/bootstrap.min.js",
+              "src/assets/js/plugins/feather.min.js",
+              "src/assets/js/pcoded.min.js",
+              "src/assets/js/highlight.min.js",
+              "src/assets/js/plugins/clipboard.min.js",
+              "src/assets/js/uikit.min.js",
+              "src/assets/js/headerAndSidenav.js",
+              "src/assets/js/plugins/bootstrap-datepicker.min.js",
+              "src/assets/js/plugins/select2.full.min.js",
+              "src/assets/js/pages/form-select-custom.js",
+              "src/assets/js/arrowdate.js",
+              "src/assets/js/basicwizard.js",
+              "src/assets/js/plugins/bootstrap-select.min.js",
+              "src/assets/js/plugins/jquery.bootstrap.wizard.min.js",
+              "src/assets/js/plugins/jquery.smartWizard.min.js",
+              "src/assets/js/plugins/jquery.validate.min.js",
+              "src/assets/js/plugins/bootstrap-datepicker.min.js",
+              "src/assets/js/plugins/jquery.peity.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -87,14 +124,31 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/haldialogo.png", "src/assets"],
             "styles": [
-              "src/styles.scss"
+              "src/assets/fonts/font-awsome-pro/css/pro.min.css",
+              "src/assets/fonts/feather.css",
+              "src/assets/fonts/fontawesome.css",
+              "src/assets/css/style.css",
+              "src/assets/css/plugins/select2.min.css",
+              "src/assets/css/customizer.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/vendor-all.min.js",
+              "src/assets/js/plugins/bootstrap.min.js",
+              "src/assets/js/plugins/feather.min.js",
+              "src/assets/js/pcoded.min.js",
+              "src/assets/js/highlight.min.js",
+              "src/assets/js/plugins/clipboard.min.js",
+              "src/assets/js/uikit.min.js",
+              "src/assets/js/headerAndSidenav.js",
+              "src/assets/js/plugins/jquery.bootstrap.wizard.min.js",
+              "src/assets/js/plugins/bootstrap-datepicker.min.js",
+              "src/assets/js/plugins/select2.full.min.js",
+              "src/assets/js/pages/form-select-custom.js",
+              "src/assets/js/arrowdate.js",
+              "src/assets/js/basicwizard.js"
+            ]
           }
         },
         "lint": {
@@ -105,9 +159,7 @@
               "tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -123,6 +175,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ngEmployeeLogin"
 }

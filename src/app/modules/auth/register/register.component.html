@@ -1,0 +1,370 @@
+<div class="auth-wrapper">
+  <div class="pcoded-content" style="width: 1077px; height: 650px">
+    <div class="row" style="width: 1128px; height: 650px">
+      <!-- [ Smart-Wizard ] start -->
+
+      <div class="col-md-12">
+        <div class="card">
+          <div class="auth-content" style="width: 1100px">
+            <div class="row align-items-center text-center">
+              <div class="col-md-12">
+                <div class="card-header">
+                  <h5>Citizen Registration</h5>
+                </div>
+                <div class="card-body">
+                  <div class="bt-wizard" id="validationwizard">
+                    <ul class="nav nav-pills nav-fill mb-3">
+                      <li class="nav-item">
+                        <a
+                          href="#validation-t-tab1"
+                          class="nav-link"
+                          data-toggle="tab"
+                          >User Information</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#validation-t-tab2"
+                          class="nav-link"
+                          data-toggle="tab"
+                          >Address Information</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#validation-t-tab3"
+                          class="nav-link"
+                          data-toggle="tab"
+                          >Personal Identity Information</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#validation-t-tab4"
+                          class="nav-link"
+                          data-toggle="tab"
+                          >Final</a
+                        >
+                      </li>
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane active show" id="validation-t-tab1">
+                        <form class="form-1 needs-validation" novalidate>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">User Type</label>
+                                <select
+                                  class="js-example-placeholder-multiple col-sm-12"
+                                >
+                                  <option value="AL">Alabama</option>
+                                  <option value="WY">Wyoming</option>
+                                  <option value="WY">Coming</option>
+                                  <option value="WY">Hanry Die</option>
+                                  <option value="WY">John Doe</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="txt_fname"
+                                  name="txt_fname"
+                                  autocomplete="off"
+                                  placeholder="Enter Your First Name."
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Middle Name</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="txt_mname"
+                                  name="txt_mname"
+                                  autocomplete="off"
+                                  placeholder="Enter Your Middle Name."
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Last Name</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="txt_lname"
+                                  name="txt_lname"
+                                  autocomplete="off"
+                                  placeholder="Enter Your Last Name."
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label"
+                                  >Father's/Husband/Company name</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="txt_Gname"
+                                  name="txt_gname"
+                                  autocomplete="off"
+                                  placeholder="Enter Your Father's/Husband/Company Name."
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Mobile Number</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="txt_Mobile"
+                                  name="txt_lname"
+                                  autocomplete="off"
+                                  placeholder="Enter Your Mobile Name."
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="txt_Email"
+                                  name="txt_Email"
+                                  autocomplete="off"
+                                  placeholder="Enter Your Email Name."
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Date Of Birth</label>
+                                <div class="input-group date">
+                                  <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Select date"
+                                    id="pc-datepicker-2"
+                                  />
+                                  <div class="input-group-append">
+                                    <span class="input-group-text">
+                                      <i class="feather icon-calendar"></i>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Gender</label>
+                                <select
+                                  class="js-example-placeholder-multiple col-sm-12"
+                                >
+                                  <option value="1">Male</option>
+                                  <option value="2">Female</option>
+                                  <option value="3">Other</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Password</label>
+                                <input
+                                  type="password"
+                                  class="form-control"
+                                  name="validation-password"
+                                  placeholder="Password"
+                                  autocomplete="off"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label"
+                                  >Confirm password</label
+                                >
+                                <input
+                                  type="password"
+                                  class="form-control"
+                                  name="validation-password-confirmation"
+                                  placeholder="Confirm password"
+                                  autocomplete="off"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="tab-pane" id="validation-t-tab2">
+                        <form class="form-2 needs-validation" novalidate>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Road Name</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="txt_Road"
+                                  name="txt_Road"
+                                  autocomplete="off"
+                                  placeholder="Enter Road Name."
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Locality Name</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="txt_Locality"
+                                  name="txt_Locality"
+                                  autocomplete="off"
+                                  placeholder="Enter Locality Name."
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">District</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="txt_District"
+                                  name="txt_District"
+                                  autocomplete="off"
+                                  placeholder="Enter District Name."
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">State</label>
+                                <div class="aa">
+                                  <select
+                                    class="js-example-placeholder-multiple col-md-12"
+                                  >
+                                    <option value="1">Andhra Pradesh</option>
+                                    <option value="2">Arunachal Pradesh</option>
+                                    <option value="3">Assam</option>
+                                    <option value="4">Bihar</option>
+                                    <option value="5">Chhattisgarh</option>
+                                    <option value="6">Goa</option>
+                                    <option value="7">West Bengal</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">Pin</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="txt_Pin"
+                                  name="txt_Pin"
+                                  autocomplete="off"
+                                  placeholder="Enter Pin."
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="tab-pane" id="validation-t-tab3">
+                        <form class="form-3 needs-validation" novalidate>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">User Type </label>
+                                <div>
+                                  <select
+                                    class="js-example-placeholder-multiple col-sm-12"
+                                  >
+                                    <option value="1">Pan Card</option>
+                                    <option value="2">Voter Card</option>
+                                    <option value="3">Aadhaar card</option>
+                                    <option value="4">Driving License</option>
+                                    <option value="5">Passport</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label"
+                                  >ID Proof Number</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="txt_IDProof"
+                                  name="txt_IDProof"
+                                  autocomplete="off"
+                                  placeholder="ID Proof Number."
+                                />
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="form-label">File</label>
+                                <input
+                                  type="file"
+                                  id="UploadImage"
+                                  name="UploadImage"
+                                  class="form-control"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+
+                      <div class="tab-pane" id="validation-t-tab4">
+                        <form class="text-center">
+                          <i
+                            class="feather icon-check-circle display-3 text-success"
+                          ></i>
+                          <h5 class="mt-3">Registration Done! . .</h5>
+                        </form>
+                      </div>
+                      <div class="row justify-content-between btn-page">
+                        <div class="col-sm-6">
+                          <a href="#" class="btn btn-primary button-previous"
+                            >Previous</a
+                          >
+                        </div>
+                        <div class="col-sm-6 text-md-right">
+                          <a href="#" class="btn btn-primary button-next"
+                            >Next</a
+                          >
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div
+                          class="card-body"
+                          style="padding-left: 858px"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

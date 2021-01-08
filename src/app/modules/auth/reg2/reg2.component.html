@@ -1,0 +1,256 @@
+<div class="auth-wrapper auth-v3">
+  <div class="auth-content">
+    <div class="card">
+      <div class="row align-items-stretch text-center">
+        <div class="col-md-6 img-card-side">
+          <img
+            src="assets/images/auth/auth-side2.jpg"
+            alt=""
+            class="img-fluid"
+          />
+          <div class="img-card-side-content">
+            <img
+              src="assets/images/logo-haldia.png"
+              alt=""
+              class="img-fluid rounded"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <div class="text-left">
+              <h4 class="mb-3 f-w-600">Create Account</h4>
+            </div>
+            <form [formGroup]="Reg2Form" (ngSubmit)="Reg2()">
+              <div class="">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <fa-icon [icon]="faUser"></fa-icon>
+                    </span>
+                  </div>
+                  <select
+                    (change)="changeUserType()"
+                    [ngClass]="{
+                      'is-invalid': UserType.touched && UserType.invalid,
+                      'is-valid': !UserType.invalid
+                    }"
+                    formControlName="UserType"
+                    class="form-control"
+                  >
+                    <option value="0">SELF</option>
+                    <option value="1">COMPANY</option>
+                  </select>
+                  <div
+                    *ngIf="UserType.touched && UserType.invalid"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="UserType.errors.required">
+                      User type required
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <fa-icon [icon]="faUser"></fa-icon>
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="Name"
+                    [ngClass]="{
+                      'is-invalid': Name.touched && Name.invalid,
+                      'is-valid': !Name.invalid
+                    }"
+                    placeholder="Name"
+                  />
+                  <div
+                    *ngIf="Name.touched && Name.invalid"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="Name.errors.required">Name required</div>
+                  </div>
+                </div>
+                <!-- This way we can set visible and enable any control just add css class-->
+                <div
+                  [ngClass]="{ hidden: CompanyName.disabled }"
+                  class="input-group mb-3"
+                >
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <fa-icon [icon]="faUser"></fa-icon>
+                    </span>
+                  </div>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="CompanyName"
+                    [ngClass]="{
+                      'is-invalid': CompanyName.touched && CompanyName.invalid,
+                      'is-valid': !CompanyName.invalid
+                    }"
+                    placeholder="Company Name"
+                  />
+                  <div
+                    *ngIf="CompanyName.touched && CompanyName.invalid"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="CompanyName.errors.required">
+                      Company Name required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <fa-icon [icon]="faEnvelope"></fa-icon>
+                    </span>
+                  </div>
+
+                  <input
+                    type="email"
+                    formControlName="EmailId"
+                    class="form-control"
+                    [ngClass]="{
+                      'is-invalid': EmailId.touched && EmailId.invalid,
+                      'is-valid': !EmailId.invalid
+                    }"
+                    placeholder="E-mail address"
+                  />
+                  <div
+                    *ngIf="EmailId.touched && EmailId.invalid"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="EmailId.errors.required">
+                      E-mail Id required
+                    </div>
+                    <div *ngIf="EmailId.errors.cannotContainSpace">
+                      email cannot contain space
+                    </div>
+                    <div *ngIf="EmailId.errors.emailNotAvailable">
+                      email not available
+                    </div>
+                    <div *ngIf="EmailId.errors?.email">email not valid</div>
+                  </div>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <fa-icon [icon]="faMobile"></fa-icon>
+                    </span>
+                  </div>
+
+                  <input
+                    type="tel"
+                    maxlength="10"
+                    class="form-control"
+                    formControlName="MobileNo"
+                    [ngClass]="{
+                      'is-invalid': MobileNo.touched && MobileNo.invalid,
+                      'is-valid': !MobileNo.invalid
+                    }"
+                    placeholder="Mobile No."
+                  />
+                  <div
+                    *ngIf="MobileNo.touched && MobileNo.invalid"
+                    class="invalid-feedback"
+                  >
+                    <div *ngIf="MobileNo.errors.required">
+                      Mobile No. required
+                    </div>
+
+                    <div *ngIf="MobileNo.errors.cannotContainSpace">
+                      Mobile number can not contain space
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="form-group text-left mb-4">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input input-primary"
+                                            id="customCheckdefh2" checked="">
+                                        <label class="custom-control-label" for="customCheckdefh2">I accept the <a
+                                                href="#!"> Term & condition</a></label>
+                                    </div>
+                                </div> -->
+                <input type="hidden" formControlName="HashMap" />
+                <input type="hidden" formControlName="Password" />
+                <input type="hidden" formControlName="OTP" />
+                <div class="">
+                  <button
+                    type="submit"
+                    data-toggle="modal"
+                    data-target="#exampleModalLive"
+                    class="btn btn-primary btn-block mt-2"
+                  >
+                    Create Account
+                  </button>
+                </div>
+              </div>
+            </form>
+            <p class="mb-2 text-left">
+              Already have an account?
+              <a [routerLink]="'/login'" class="f-w-400">Signin</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  id="exampleModalLive"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLiveLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">OTP Verification</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <fa-icon [icon]="faPen"></fa-icon>
+            </span>
+          </div>
+          <input
+            type="text"
+            [(ngModel)]="txtOTP"
+            class="form-control"
+            placeholder="OTP"
+          />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          (click)="alertWithSuccess()"
+          data-dismiss="modal"
+          type="button"
+          class="btn btn-primary"
+        >
+          Verify
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
